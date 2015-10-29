@@ -17,8 +17,10 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Martin Six
  */
-@WebServlet(name = "CalculatorServlet", urlPatterns = {"/CalculatorServlet"})
-public class CalculatorServlet extends HttpServlet {
+@WebServlet(name = "AjaxServ", urlPatterns = {"/AjaxServ"})
+public class AjaxServ extends HttpServlet {
+
+    int i = 0;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -29,64 +31,17 @@ public class CalculatorServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        i++;
         response.setContentType("text/html;charset=UTF-8");
-
-        Double res = 0.0;
-        String leftO = "", rightO = "";
-        String opS = request.getParameter("operator");
-        if (opS != null)
-        {
-            try {
-                leftO = request.getParameter("leftO");
-                Double l;
-                if (leftO != null) {
-                    l = Double.parseDouble(leftO);
-                } else {
-                    l = 0.0;
-                }
-                rightO = request.getParameter("rightO");
-                Double r;
-                if (rightO != null) {
-                    r = Double.parseDouble(rightO);
-                } else {
-                    r = 0.0;
-                }
-
-                switch (opS) {
-                    case "+":
-                        res =  (l + r);
-//                        pluSel = "selected";
-                        break;
-                    case "-":
-                        res =  (l - r);
-//                        minSel = "selected";
-                        break;
-                    case "*":
-                        res =  l * r;
-//                        mulSel = "selected";
-                        break;
-                    case "/":
-                        res =  l / r;
-//                        divSel = "selected";
-                        break;
-                    default:
-                        res = 0.0;
-                }
-            } catch (NumberFormatException e) {
-                System.out.println(e);
-            } catch (Exception e) {
-                System.out.println(e);
-            }
-        }
         try (PrintWriter out = response.getWriter()) {
-
-            out.println(res);
-
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<h2>Count:"+ i+"</h2>");
         }
     }
 
-// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
