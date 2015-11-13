@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Calculator</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            function calculate() {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+                    if (xhttp.readyState == 4 && xhttp.status == 200) {
+                        document.getElementById("res").innerHTML = xhttp.responseText;
+                    }
+                }
+                xhttp.open("GET", "CalculatorServlet?leftO=" + document.getElementById("leftO").value + "&rightO=" + document.getElementById("rightO").value + "&operator=" + encodeURIComponent(document.getElementById("operator").value), true);
+                xhttp.send();
+            }
+        </script>
+
+    </head>
+    <body>
+
+
+
+        <h1>Calculator</h1>
+
+        <table border="0" width="100% ">
+            <colgroup>
+                <col width="150">
+                <col width="*">
+            </colgroup>
+
+            <tr>
+                <td align="left">Left operand:</td>
+                <td align="left"><input  name="leftO" id="leftO" oninput="calculate()"></td>
+            </tr>
+
+            <tr>
+                <td align="left">Right operand:</td>
+                <td align="left"><input  name="rightO" id="rightO" oninput="calculate()"></td>
+            </tr>
+
+            <tr>
+                <td align="left"><button type="button" onclick="calculate()">Calculate</button></td>
+                <td align="left">
+                    <select name="operator" id="operator" oninput="calculate()">
+                        <option value="+" selected>+</option>
+                        <option value="-" >-</option>
+                        <option value="*" >*</option>
+                        <option value="/" >/</option>
+                    </select>		  
+                </td>
+            </tr>
+
+            <tr>
+                <td align="left">Result:</td>
+                <td align="left" id="res"></td>
+            </tr>
+        </table>
+
+
+    </body>
+</html>

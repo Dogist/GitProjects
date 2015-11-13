@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>PersonListLogin</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <script>
+            function addP() {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+                    if (xhttp.readyState == 4 && xhttp.status == 200) {
+                        document.getElementById("list").innerHTML = xhttp.responseText;
+                    }
+                }
+                xhttp.open("GET", "PersListLoginServlet?nr=" + document.getElementById("nr").value + "&name=" + encodeURIComponent(document.getElementById("name").value), true);
+                xhttp.send();
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Personenliste</h1>
+        <h2></h2>
+        <table border="0" width="100% ">
+            <colgroup>
+                <col width="150">
+                <col width="*">
+            </colgroup>
+            
+            <tr>
+                <td align="left">Nr:</td>
+                <td><input type="number" id="nr"></td>
+            </tr>
+            <tr>
+                <td align="left">Name:</td>
+                <td><input type="text" id="name"></td>
+            </tr>
+        </table>
+        <button onclick="addP()">Add</button>
+        <div id="list"></div>
+    </body>
+</html>

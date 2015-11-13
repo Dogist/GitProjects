@@ -12,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -33,6 +34,16 @@ public class CounterServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         count++;
+        HttpSession sess = request.getSession();
+        String sessKey="AccessCount";
+        
+        Integer sCount=(Integer) sess.getAttribute(sessKey);
+        if(sCount==null){
+            sCount= new Integer(0);
+        }
+        sCount++;
+        sess.setAttribute(sessKey, sCount);
+        
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
@@ -43,7 +54,9 @@ public class CounterServlet extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>CounterServlet</h1>");
-            out.println("Anzahl der Aufrufe: "+count);
+            out.println("<div>Anzahl der Globalenaufrufe: "+count+"</div>");
+            out.println("<div>Anzahl der Sessionaufrufe: "+sCount+"</div>");
+            out.println("<button onclick=\"history.go(0)\"> Next</button>");
             out.println("</body>");
             out.println("</html>");
         }

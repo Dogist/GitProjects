@@ -17,8 +17,7 @@ and open the template in the editor.
                         document.getElementById("res").innerHTML = xhttp.responseText;
                     }
                 }
-               var select = document.getElementById("operator");
-                xhttp.open("GET", "CalculatorServlet?leftO=" + document.getElementById("leftO").value + "&rightO=" + document.getElementById("rightO").value+ "&operator=" + encodeURIComponent(select.options[select.selectedIndex].value), true);
+                xhttp.open("GET", "CalculatorServlet?leftO=" + document.getElementById("leftO").value + "&rightO=" + document.getElementById("rightO").value + "&operator=" + encodeURIComponent(document.getElementById("operator").value), true);
                 xhttp.send();
             }
         </script>
@@ -29,41 +28,41 @@ and open the template in the editor.
 
 
         <h1>Calculator</h1>
-        <form method="get" >
-            <table border="0" width="100% ">
-                <colgroup>
-                    <col width="150">
-                    <col width="*">
-                </colgroup>
 
-                <tr>
-                    <td align="left">Left operand:</td>
-                    <td align="left"><input  name="leftO" id="leftO" oninput="calculate()"></td>
-                </tr>
+        <table border="0" width="100% ">
+            <colgroup>
+                <col width="150">
+                <col width="*">
+            </colgroup>
 
-                <tr>
-                    <td align="left">Right operand:</td>
-                    <td align="left"><input  name="rightO" id="rightO" oninput="calculate()"></td>
-                </tr>
+            <tr>
+                <td align="left">Left operand:</td>
+                <td align="left"><input  name="leftO" id="leftO" oninput="calculate()"></td>
+            </tr>
 
-                <tr>
-                    <td align="left"><button type="button" onclick="calculate()">Calculate</button></td>
-                    <td align="left">
-                        <select name="operator" id="operator" oninput="calculate()">
-                            <option value="+" selected>+</option>
-                            <option value="-" >-</option>
-                            <option value="*" >*</option>
-                            <option value="/" >/</option>
-                        </select>		  
-                    </td>
-                </tr>
+            <tr>
+                <td align="left">Right operand:</td>
+                <td align="left"><input  name="rightO" id="rightO" oninput="calculate()"></td>
+            </tr>
 
-                <tr>
-                    <td align="left">Result:</td>
-                    <td align="left" id="res"></td>
-                </tr>
-            </table>
-        </form>
+            <tr>
+                <td align="left"><button type="button" onclick="calculate()">Calculate</button></td>
+                <td align="left">
+                    <select name="operator" id="operator" oninput="calculate()">
+                        <option value="+" selected>+</option>
+                        <option value="-" >-</option>
+                        <option value="*" >*</option>
+                        <option value="/" >/</option>
+                    </select>		  
+                </td>
+            </tr>
+
+            <tr>
+                <td align="left">Result:</td>
+                <td align="left" id="res"></td>
+            </tr>
+        </table>
+
 
     </body>
 </html>

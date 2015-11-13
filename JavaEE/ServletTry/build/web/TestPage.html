@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <script>
+            function loadDoc(url) {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+                    if (xhttp.readyState == 4 && xhttp.status == 200) {
+                        document.getElementById("demo").innerHTML = xhttp.responseText;
+                    }
+                }
+                xhttp.open("GET", url, true);
+                xhttp.send();
+            }
+        </script>
+    </head>
+    <body>
+        <div id="demo"><h2>Let AJAX change this text</h2></div>
+
+        <button type="button" onclick="loadDoc('CalculatorServlet.txt')">Change Content</button>
+        <button type="button" onclick="loadDoc('AjaxServ')">Change Content Srv</button>
+    </body>
+</html>

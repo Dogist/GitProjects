@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:alignmentMode="alignBounds"
+    android:columnOrderPreserved="false"
+
+    android:columnCount="4">
+
+    <TextView
+        android:id="@+id/ID"
+        android:text="@string/id"
+        android:layout_gravity="end"/>
+    <EditText
+        android:id="@+id/a_id_text"
+        android:hint="@string/id_text"
+        android:layout_gravity="fill_horizontal"
+        android:layout_columnSpan="3"/>
+
+    <TextView
+        android:id="@+id/name"
+        android:text="@string/name"
+        android:layout_gravity="end"/>
+    <EditText
+        android:id="@+id/a_name_text"
+        android:hint="@string/name_text"
+        android:layout_gravity="fill_horizontal"
+        android:layout_columnSpan="3"/>
+
+    <TextView
+        android:id="@+id/prior"
+        android:text="@string/prior"
+        android:layout_gravity="end"/>
+    <EditText
+        android:id="@+id/a_prior_text"
+        android:hint="@string/prior_text"
+        android:layout_gravity="fill_horizontal"
+        android:layout_columnSpan="3"/>
+
+    <TextView
+        android:id="@+id/start_date"
+        android:text="@string/start_date"
+        android:layout_gravity="end"/>
+    <EditText
+        android:id="@+id/a_start_date_text"
+        android:hint="@string/start_date_text"
+        android:layout_gravity="fill_horizontal"
+        android:inputType="date"
+        android:layout_columnSpan="3"/>
+
+    <TextView
+        android:id="@+id/end_date"
+        android:text="@string/end_date"
+        android:layout_gravity="end"/>
+    <EditText
+        android:id="@+id/a_end_date_text"
+        android:hint="@string/end_date_text"
+        android:inputType="date"
+        android:layout_gravity="fill_horizontal"
+        android:layout_columnSpan="3"/>
+
+    <TextView
+        android:id="@+id/effort"
+        android:text="@string/effort"
+        android:layout_gravity="end"/>
+    <EditText
+        android:id="@+id/a_effort_text"
+        android:hint="@string/effort_text"
+        android:layout_gravity="fill_horizontal"
+        android:layout_columnSpan="3"/>
+
+
+    <Button
+        android:id="@+id/a_saveB"
+        android:text="@string/button_save"
+        android:layout_columnWeight="1"
+        android:layout_column="1"/>
+    <Button
+        android:id="@+id/a_newB"
+        android:text="@string/button_new"
+        android:layout_columnWeight="1" />
+    <Button
+        android:id="@+id/a_deleteB"
+        android:text="@string/button_delete"
+        android:layout_columnWeight="1"/>
+
+</GridLayout>
