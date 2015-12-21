@@ -44,7 +44,8 @@ public class PersonLogin extends HttpServlet {
                 userexist = true;
             }
         }
-        try (PrintWriter out = response.getWriter()) {
+        PrintWriter out = response.getWriter();
+        try {
             if (userexist) {
                 ServletContext sc = this.getServletContext();
                 RequestDispatcher rd = sc.getRequestDispatcher("/PersonListLogin.html");
@@ -57,6 +58,8 @@ public class PersonLogin extends HttpServlet {
                 rd.include(request, response);
 
             }
+        } catch (Exception e) {
+            System.out.println(e);
         }
     }
 

@@ -35,9 +35,12 @@ public class AjaxServ extends HttpServlet {
             throws ServletException, IOException {
         i++;
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
+        PrintWriter out = response.getWriter();
+        try {
             /* TODO output your page here. You may use following sample code. */
-            out.println("<h2>Count:"+ i+"</h2>");
+            out.println("<h2>Count:" + i + "</h2>");
+        } catch (Exception e) {
+            System.out.println(e);
         }
     }
 

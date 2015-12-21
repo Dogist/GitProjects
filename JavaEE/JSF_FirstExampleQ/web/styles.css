@@ -1,0 +1,25 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 10.12.2015, 11:26:33
+    Author     : Martin Six
+*/
+
+.HEADING {
+   background-color: #003399;
+   color: white;
+   font-family: Arial, Helvetica, sans-serif;
+   font-size: 20px;
+   font-weight: bold;
+   text-align: center
+}
+.ROW {
+   background-color: silver;
+   color: white;
+   font-family: Arial, Helvetica, sans-serif;
+   font-size: 12px;
+   text-indent: 14px
+}

@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <f:view>
+            <f:verbatim>
+                <h2>Schülerliste</h2>
+            </f:verbatim>
+            <h:form id="form1" >
+                <h:panelGrid columns="2" border = "0"  bgcolor="#cccccc">
+                    <f:facet name="header" >
+                        <h:outputText value = "Eingabe Formular"/>
+                    </f:facet>
+                    <h:outputText id="oVorname" value="Vorname " />
+                    <h:inputText  id="iVorname" value="#{maskBean.vn}"/>
+                    <h:outputText id="oNachname" value="Nachname " />
+                    <h:inputText  id="iNachname" value="#{maskBean.nn}"/>
+                    <h:outputText id="oKlasse" value="Klasse " />
+                    <h:inputText  id="iKlasse" value="#{maskBean.kl}"/>
+                    <h:outputText id="oAlter" value="Alter " />
+                    <h:inputText  id="iAlter" value="#{maskBean.alter}"/>
+                    <h:outputText id="oKatalognummer" value="Katalognummer " />
+                    <h:inputText  id="iKatalognummer" value="#{maskBean.knr}"/>
+                    <h:commandButton value="Add" action="#{maskBean.addSchueler}" />
+                    <h:commandButton value="Print" action="#{maskBean.printList}" />
+                </h:panelGrid>
+            </h:form>
+        </f:view>
+    </h:body>
+</html>
+

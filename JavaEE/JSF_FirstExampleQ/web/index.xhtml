@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" 
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Facelet Title</title>
+        <h:outputStylesheet library="css" name="styles.css"  />
+    </h:head>
+    <h:body>
+        <f:view>
+            <f:verbatim>
+                <h2>Quadrat calculations</h2>
+            </f:verbatim>
+            <h:form id="form1" >
+                <h:panelGrid columns="2" border = "0"  bgcolor="#cccccc" headerClass="HEADING">
+                    <f:facet name="header" >
+                        <h:outputText value = "Exam Details"/>
+                    </f:facet>
+                    <h:outputText id="oLength" value="Length: " />
+                    <h:inputText  id="iLength" value="#{sessionBean.length}"/>
+                    <h:outputText id="oArea" value="Area: " />
+                    <h:inputText  id="iArea" value="#{sessionBean.area}" disabled="true" />
+                    <h:outputText id="oCircumference" value="Circumference " />
+                    <h:inputText  id="iCircumference" value="#{sessionBean.circumference}" disabled="true" />
+                    <h:commandButton value="Calculate" action="#{sessionBean.calculate}" />
+                </h:panelGrid>
+            </h:form>
+        </f:view>
+    </h:body>
+</html>
