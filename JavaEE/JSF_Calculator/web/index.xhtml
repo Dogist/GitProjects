@@ -1,7 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Facelet Title</title>
     </h:head>
@@ -9,9 +10,32 @@
         <h:form>
             <h:outputLabel for="lOp" value="left Operand"/>
             <h:inputText id="lOp" value="#{calculatorBean.curCalc.leOp}" />
+            <br/>
             <h:outputLabel for="rOp" value="right Operand"/>
             <h:inputText id="rOp" value="#{calculatorBean.curCalc.riOp}" />
-            
+            <br/>
+            <h:outputLabel for="op" value="Operator"/>
+            <h:selectOneMenu id="op" value="#{calculatorBean.curCalc.op}" onchange="submit()">
+                <f:selectItems value="#{calculatorBean.cs.calcOp}"/>
+            </h:selectOneMenu>
+            <br/>
+            <h:commandButton value="Calc" actionListener="#{calculatorBean.addCalcEventH}"/>
+            <h:inputText id="erg" disabled="true" value="#{calculatorBean.erg}"/>
+            <br/>
+            <h:messages styleClass="errorMessage"/>
+        </h:form>
+        <h:form>
+            <h:selectOneListbox id="selectedCalc" valueChangeListener="#{calculatorBean.selectionChangeMethod}" onchange="submit()">
+                <f:selectItems value="#{calculatorBean.calcSelectList}"/>
+            </h:selectOneListbox>
+            <h:commandButton value="Delete" actionListener="#{calculatorBean.delCalcEventH}" onclick="submit()"/>
+
+        </h:form>
+        <br/>
+        <br/>
+        <h:form>
+            <h:inputText id="total" disabled="true" value="#{calculatorBean.total}"/>
+            <h:commandButton value="Total" onclick="submit()"/>
         </h:form>
     </h:body>
 </html>

@@ -10,6 +10,7 @@ package at.htlpinkafeld;
  * @author Martin Six
  */
 public class Calculation {
+
     private double leOp;
     private double riOp;
     private char op;
@@ -21,6 +22,12 @@ public class Calculation {
         this.leOp = lOp;
         this.riOp = rOp;
         this.op = op;
+    }
+
+    public Calculation(Calculation calc) {
+        this.leOp = calc.getLeOp();
+        this.riOp = calc.getRiOp();
+        this.op = calc.getOp();
     }
 
     public double getLeOp() {
@@ -47,6 +54,8 @@ public class Calculation {
         this.op = op;
     }
 
-    
-    
+    @Override
+    public String toString() {
+        return "Calculation: " + leOp + "  " + op + " " + +riOp;
+    }
 }

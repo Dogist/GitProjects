@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="lowDiff_rownum">9</integer>
+    <integer name="lowDiff_colnum">9</integer>
+    <integer name="lowDiff_numMines">10</integer>
+
+    <integer name="mediumDiff_rownum">16</integer>
+    <integer name="mediumDiff_colnum">10</integer>
+    <integer name="mediumDiff_numMines">25</integer>
+
+    <integer name="highDiff_rownum">16</integer>
+    <integer name="highDiff_colnum">10</integer>
+    <integer name="highDiff_numMines">33</integer>
+
+    <integer name="special_rownum">20</integer>
+    <integer name="special_colnum">11</integer>
+    <integer name="special_numMines">48</integer>
+</resources>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView android:layout_width="match_parent"
+        android:layout_height="wrap_content"  android:textColor="#33b5e5"
+        android:textStyle="bold" android:textSize="50sp" android:gravity="start"
+        android:text="@string/app_name"
+        android:paddingBottom="50dp"/>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/text">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/difficulty_name"
+            android:textSize="@dimen/text"/>
+        <Spinner
+            android:id="@+id/difficulty_spinn"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:scrollbarSize="@dimen/text"
+            android:spinnerMode="dropdown" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mine_num"
+            android:textSize="@dimen/smaller_text"/>
+        <EditText
+            android:id="@+id/mine_number_etext"
+            android:inputType="number"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:textSize="@dimen/smaller_text"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/height"
+            android:textSize="@dimen/smaller_text"/>
+        <EditText
+            android:id="@+id/height_etext"
+            android:inputType="number"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:textSize="@dimen/smaller_text"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/width"
+            android:textSize="@dimen/smaller_text"/>
+        <EditText
+            android:id="@+id/width_etext"
+            android:inputType="number"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:textSize="@dimen/smaller_text"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="100sp">
+
+        <Button android:id="@+id/start_button"
+            android:layout_width="fill_parent" android:layout_height="wrap_content"
+            android:text="@string/start"
+            android:textSize="30sp"/>
+
+    </LinearLayout>
+</LinearLayout>
