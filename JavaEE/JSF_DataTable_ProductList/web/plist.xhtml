@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Product List</title>
+    </h:head>
+    <h:body>
+        <h:form id="plistform">
+            <h:dataTable id="table" var="prod" value="#{pricelistBean.prodList}" border="1" cellpadding="3">
+                <f:facet name = "header">
+                    <h:outputText value="Pricelist"/>
+                </f:facet>
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText  value="ID"/>
+                    </f:facet>
+                    <h:outputText value="#{prod.id}"/>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText  value="Name"/>
+                    </f:facet>
+                    <h:outputText value="#{prod.name}"/>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText  value="Price"/>
+                    </f:facet>
+                    <h:outputText value="#{prod.price}"/>
+                </h:column>
+
+                <h:column>
+                    <h:commandLink value="Delete" action="#{pricelistBean.deleteProd(prod)}"/>                    
+                </h:column>
+                <h:column>
+                    <h:commandLink value="Edit" action="#{productBean.editProd(prod)}"/>
+                </h:column>
+                <f:facet name="footer">
+                    <h:commandButton value="New Product" action="#{productBean.newProd()}" />
+                </f:facet>
+            </h:dataTable>
+        </h:form>
+        <h:form>
+            <h2>selectOneMenu with var-Attribute in selectItems-Tag</h2>
+            <h:selectOneMenu value="#{pricelistBean.PId}">
+                <f:selectItems value="#{pricelistBean.prodList}" var="pr" itemValue="#{pr.id}" itemLabel="#{pr.name}"/>
+            </h:selectOneMenu>            
+            <h:commandButton value="Get ID" />
+            <h:outputText value="#{pricelistBean.PId}"/>
+        </h:form>
+    </h:body>
+</html>
+

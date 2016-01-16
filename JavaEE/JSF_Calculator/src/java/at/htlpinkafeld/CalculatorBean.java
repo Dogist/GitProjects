@@ -61,15 +61,18 @@ public class CalculatorBean {
         if (calcSelectList.size() > 0) {
             UIComponent c = e.getComponent();
             UIComponent list = c.getParent().findComponent("selectedCalc");
-            int key = Integer.parseInt(list.getAttributes().get("value").toString());
-            cs.removeCalc(key);
-            calcSelectList.remove(key);
-            for (int i = key; i < calcSelectList.size(); i++) {
-                calcSelectList.get(i).setValue(i);
+            Object value = list.getAttributes().get("value");
+            if (value != null) {
+                int key = Integer.parseInt(list.getAttributes().get("value").toString());
+                cs.removeCalc(key);
+                calcSelectList.remove(key);
+                for (int i = key; i < calcSelectList.size(); i++) {
+                    calcSelectList.get(i).setValue(i);
+                }
             }
         }
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Error:  list empty"));
-
+        else
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Error:  list empty"));
     }
 
     public void selectionChangeMethod(ValueChangeEvent event) {
