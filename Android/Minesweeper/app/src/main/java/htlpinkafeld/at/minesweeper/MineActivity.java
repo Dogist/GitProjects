@@ -1,7 +1,6 @@
 package htlpinkafeld.at.minesweeper;
 
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -70,8 +69,7 @@ public class MineActivity extends AppCompatActivity {
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
         dialogBuilder.setMessage(message);
 
-        AlertDialog alertDialog = dialogBuilder.create();
-        alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "play again?", new DialogInterface.OnClickListener() {
+        dialogBuilder.setPositiveButton("play again?", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 FieldServiceClass.getFieldServiceClass().reset();
@@ -79,24 +77,18 @@ public class MineActivity extends AppCompatActivity {
                 ((BaseAdapter) grid.getAdapter()).notifyDataSetChanged();
             }
         });
-        alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "different settings?", new DialogInterface.OnClickListener() {
+        dialogBuilder.setNegativeButton("different settings?", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 finish();
             }
         });
-        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "cancel",new DialogInterface.OnClickListener() {
+        dialogBuilder.setNeutralButton( "cancel",new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 ((GridView)findViewById(R.id.game_grid)).setEnabled(false);
             }
         });
-        alertDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
-            @Override
-            public void onDismiss(DialogInterface dialog) {
-                //((GridView)findViewById(R.id.game_grid)).setEnabled(false);
-            }
-        });
-        return alertDialog;
+        return dialogBuilder.create();
     }
 }
