@@ -29,7 +29,6 @@ public class ApplicationConfig extends Application {
      * If required, comment out calling this method in getClasses().
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
-        resources.add(at.htlpinkafeld.rs_todomanagement.MyResource.class);
         resources.add(at.htlpinkafeld.rs_todomanagement.resources.TodoResource.class);
         resources.add(at.htlpinkafeld.rs_todomanagement.resources.TodosResource.class);
         resources.add(org.glassfish.jersey.server.wadl.internal.WadlResource.class);

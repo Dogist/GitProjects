@@ -1,4 +1,4 @@
-package at.htlpinkafeld.rs_todomanagement;
+package at.htlpinkafeld.rs_moviemanagement;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

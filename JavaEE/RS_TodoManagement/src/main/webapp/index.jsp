@@ -12,7 +12,7 @@
             <br/>
             <input type="submit" value="Submit" />
         </form>
-        <input type="button" onclick="location.href='../RS_TodoManagement/rest/todos/count';" value="Count" />
+        <input type="button" onclick="location.href='rest/todos/count';" value="Count" />
         
 </body>
 </html>
