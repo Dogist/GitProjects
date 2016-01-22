@@ -17,7 +17,6 @@ import java.util.List;
 public class PupilManagerService {
 
     private final List<Pupil> pupList;
-    public static final SimpleDateFormat DATEFORMAT = new SimpleDateFormat("dd.MM.yyyy");
 
     public PupilManagerService() {
         pupList = new ArrayList<>();

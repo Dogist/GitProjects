@@ -24,8 +24,10 @@
                 <h:outputLabel value="Form " for="iForm"/>
                 <h:inputText  id="iForm" value="#{pupilBean.activePupil.form}" required="true"/>
 
-                <h:outputLabel value="Birthdate(dd.MM.yyyy) " for="iBirthdate"/>
-                <h:inputText  id="iBirthdate" value="#{pupilBean.activePupil.birthdateStr}" required="true"/>
+                <h:outputLabel value="Birthdate(dd.MM.yyyy) " for="iBirthdate" />
+                <h:inputText  id="iBirthdate" value="#{pupilBean.activePupil.birthdate}" required="true">
+                    <f:convertDateTime dateStyle="medium" />
+                </h:inputText>
 
 
 
@@ -68,7 +70,9 @@
                     <f:facet name = "header">
                         <h:outputText value="Birthday"/>
                     </f:facet>
-                    <h:outputText value="#{pup.birthdateStr}"/>
+                    <h:outputText value="#{pup.birthdate}">
+                        <f:convertDateTime dateStyle="medium" />
+                    </h:outputText>
                 </h:column>
 
                 <h:column>

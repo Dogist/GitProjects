@@ -5,8 +5,6 @@
  */
 package at.htlpinkafeld.pojo;
 
-import at.htlpinkafeld.service.PupilManagerService;
-import java.text.ParseException;
 import java.util.Date;
 
 /**
@@ -63,20 +61,8 @@ public class Pupil {
         this.birthdate = birthdate;
     }
 
-    public String getBirthdateStr() {
-        if (birthdate != null) {
-            return PupilManagerService.DATEFORMAT.format(birthdate);
-        }
-        return null;
-    }
-
-    public void setBirthdateStr(String birthdate) throws ParseException {
-
-        this.birthdate = PupilManagerService.DATEFORMAT.parse(birthdate);
-    }
-
     @Override
     public String toString() {
-        return "Pupil{" + "firstName=" + firstName + ", lastName=" + lastName + ", form=" + form + ", birthdate=" + getBirthdateStr() + '}';
+        return "Pupil{" + "firstName=" + firstName + ", lastName=" + lastName + ", form=" + form + ", birthdate=" + birthdate.toString() + '}';
     }
 }
