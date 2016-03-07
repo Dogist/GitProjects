@@ -13,4 +13,8 @@
         <managed-bean-class>at.htlpinkafeld.gui.ProductBean</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
+    <converter>
+        <converter-id>productConverterID</converter-id>        
+        <converter-class>at.htlpinkafeld.gui.ProductConverter</converter-class>
+    </converter>
 </faces-config>

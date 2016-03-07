@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form id="dateform">
+            <h:panelGrid columns="3">
+                <h:outputLabel for="inpdate" value="Date Input: "/>
+                <h:inputText id="inpdate" value="#{dtconfig.now}">
+                    <f:convertDateTime pattern="dd.MM.yyyy"/><!--oder pattern="dd.mm.yyyy" -->
+                </h:inputText>
+                <h:message for="inpdate"/>
+                
+                <h:outputLabel for="outpDate" value="Date Output:  "/>
+                <h:outputText id="outpDate" value="#{dtconfig.now}">
+                    <f:convertDateTime dateStyle="default" />
+                </h:outputText>
+                <h:message for="outpDate"/>
+                
+                <h:selectOneMenu id="selHoly" value="#{dtconfig.holiday}">
+                    <f:convertDateTime/>
+                    <f:selectItems value="#{dtconfig.possVal}"/>
+                </h:selectOneMenu>
+                <h:outputText id="outpHoly" value="#{dtconfig.holiday}">
+                    <f:convertDateTime dateStyle="long"/>
+                </h:outputText>
+                <h:message for="selHoly"/>
+                
+            </h:panelGrid>
+            <h:commandButton value="Convert/Validate"/>
+        </h:form>
+    </h:body>
+</html>
+

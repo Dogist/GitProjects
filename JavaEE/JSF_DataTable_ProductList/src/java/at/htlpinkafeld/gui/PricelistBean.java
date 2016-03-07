@@ -16,7 +16,7 @@ import java.util.List;
 public class PricelistBean {
 
     private final ProductService pServ;
-    private int pId;
+    private Product selProd;
 
     public PricelistBean() {
         pServ = new ProductService();
@@ -44,13 +44,13 @@ public class PricelistBean {
         return null;
     }
 
-    public int getPId() {
-        return pId;
+    public Product getSelProd() {
+        return selProd;
     }
 
-    public void setPId(int pId) {
-        this.pId = pId;
-    }
+    public void setSelProd(Product selProd) {
+        this.selProd = pServ.getProduct(pServ.indexOf(selProd));
+    }  
 
     public Object returnToPage() {
         return "plist.xhtml";

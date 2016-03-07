@@ -21,20 +21,28 @@
                 <h:outputLabel value="Last Name " for="iNachname"/>
                 <h:inputText  id="iNachname" value="#{pupilBean.activePupil.lastName}" required="true"/>
 
-                <h:outputLabel value="Form " for="iForm"/>
-                <h:inputText  id="iForm" value="#{pupilBean.activePupil.form}" required="true"/>
+                <h:outputLabel value="Assigned " for="assignedCheck"/>
+                <h:selectBooleanCheckbox id="assignedCheck" value="#{pupilBean.activePupil.assigned}" onclick="submit()" immediate="true" valueChangeListener="#{pupilBean.assignedChange}"/>
 
-                <h:outputLabel value="Birthdate(dd.MM.yyyy) " for="iBirthdate" />
-                <h:inputText  id="iBirthdate" value="#{pupilBean.activePupil.birthdate}" required="true">
+                <h:outputLabel value="Form " for="iForm" rendered="#{pupilBean.activePupil.assigned}" />
+                <h:inputText  id="iForm" value="#{pupilBean.activePupil.form}" rendered="#{pupilBean.activePupil.assigned}" required="true" validator="#{pupilBean.validateForm}"/>
+
+                <h:outputLabel value="Birthdate(dd.MM.yyyy) " for="iBirthdate"/>
+                <h:inputText  id="iBirthdate" value="#{pupilBean.activePupil.birthdate}" required="true" validator="#{pupilBean.validateBirthday}">
                     <f:convertDateTime dateStyle="medium" />
                 </h:inputText>
 
-
+                <h:outputLabel value="EntryDate(dd.MM.yyyy) " for="iEntryDate" />
+                <h:inputText  id="iEntryDate" value="#{pupilBean.activePupil.entryDate}" required="true" validator="#{pupilBean.validateEntryDate}">
+                    <f:convertDateTime dateStyle="medium" />
+                </h:inputText>
 
             </h:panelGrid>
             <h:commandButton value="New" action="#{pupilBean.newPupil}" immediate="true"/>
             <h:commandButton value="Save" action="#{pupilBean.savePupil}" />
-            <h:commandButton value="Print" action="#{pupilBean.printPList}"/>
+            <h:commandButton value="Print" action="#{pupilBean.printPList}" immediate="true"/>
+            <h:commandButton value="Reset" action="#{pupilBean.resetPage}" immediate="true" />
+            <h:commandButton value="Delete" action="#{pupilBean.deleteCurrP}" immediate="true"/>
             <br/>
             <h:outputLabel value="Age " for="iAge"/>
             <h:inputText value="#{pupilBean.age}" id="iAge" readonly="true"/>
@@ -76,10 +84,19 @@
                 </h:column>
 
                 <h:column>
-                    <h:commandButton value="Delete" action="#{pupilBean.deletePupil(pup)}"/>                    
+                    <f:facet name = "header">
+                        <h:outputText value="EntryDate"/>
+                    </f:facet>
+                    <h:outputText value="#{pup.entryDate}">
+                        <f:convertDateTime dateStyle="medium" />
+                    </h:outputText>
+                </h:column>
+
+                <h:column>
+                    <h:commandButton value="Delete" action="#{pupilBean.deletePupil(pup)}" immediate="true"/>                    
                 </h:column>
                 <h:column>
-                    <h:commandButton value="Edit" action="#{pupilBean.editPupil(pup)}"/>
+                    <h:commandButton value="Edit" action="#{pupilBean.editPupil(pup)}" immediate="true"/>
                 </h:column>
             </h:dataTable>
         </h:form>

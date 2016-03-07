@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>ShowName</title>
+    </h:head>
+    <h:body>
+        <h:form id="form1">
+            <h:panelGrid columns="1">
+                <f:facet name="header">
+                    No Ajax
+                </f:facet>
+                <h:inputText id="firstIn" value="#{nameBean.firstName}"/>
+                <h:inputText id="lastIn" value="#{nameBean.lastName}"/>
+                <h:commandButton value="Show" />
+            </h:panelGrid>
+            <h:outputText id="fullOut" value="Full Name: #{nameBean.firstName} #{nameBean.lastName}"/>
+            <br/><br/>
+        </h:form>
+
+        <h:form id="form2">
+            <h:panelGrid columns="1">
+                <f:facet name="header">
+                    Ajax in commandButton
+                </f:facet>
+                <h:inputText id="firstIn" value="#{nameBean.firstName}"/>
+                <h:inputText id="lastIn" value="#{nameBean.lastName}"/>
+                <h:commandButton value="Show">
+                    <f:ajax execute="firstIn lastIn" render="fullOut"/>
+                </h:commandButton>
+            </h:panelGrid>
+            <h:outputText id="fullOut" value="Full Name: #{nameBean.firstName} #{nameBean.lastName}"/>
+            <br/><br/>
+        </h:form>
+
+        <h:form id="form3">
+            <f:ajax render="fullOut">
+                <h:panelGrid columns="1">
+                    <f:facet name="header">
+                        Ajax around panelGrid / in commandButton
+                    </f:facet>
+                    <h:inputText id="firstIn" value="#{nameBean.firstName}"/>
+                    <h:inputText id="lastIn" value="#{nameBean.lastName}"/>
+                    <h:commandButton value="Show">
+                        <f:ajax execute="firstIn lastIn" render="fullOut"/>
+                    </h:commandButton>
+                </h:panelGrid>
+            </f:ajax>
+            <h:outputText id="fullOut" value="Full Name: #{nameBean.firstName} #{nameBean.lastName}"/>
+            <br/><br/>
+        </h:form>
+
+        <h:form id="form4">
+            <f:ajax event="dblclick" render="fullOut">
+                <h:panelGrid columns="1">
+                    <f:facet name="header">
+                        Ajax around panelGrid (dblclick) / in commandButton
+                    </f:facet>
+                    <h:inputText id="firstIn" value="#{nameBean.firstName}"/>
+                    <h:inputText id="lastIn" value="#{nameBean.lastName}"/>
+                    <h:commandButton value="Show">
+                        <f:ajax execute="firstIn lastIn" render="fullOut"/>
+                    </h:commandButton>
+                </h:panelGrid>
+            </f:ajax>
+            <h:outputText id="fullOut" value="Full Name: #{nameBean.firstName} #{nameBean.lastName}"/>
+            <br/><br/>
+        </h:form>
+
+        <h:form id="form5">
+            <f:ajax render=":outerFullOut">
+                <h:panelGrid columns="1">
+                    <f:facet name="header">
+                        Ajax around panelGrid / in commandButton
+                    </f:facet>
+                    <h:inputText id="firstIn" value="#{nameBean.firstName}"/>
+                    <h:inputText id="lastIn" value="#{nameBean.lastName}"/>
+                    <h:commandButton value="Show">
+                        <f:ajax execute="firstIn lastIn" render="fullOut"/>
+                    </h:commandButton>
+                </h:panelGrid>
+            </f:ajax>
+            <h:outputText id="fullOut" value="Full Name: #{nameBean.firstName} #{nameBean.lastName}"/>
+            <br/><br/>
+        </h:form>
+        <h:outputText id="outerFullOut" value="Full Name 2: #{nameBean.firstName} #{nameBean.lastName}"/>
+
+    </h:body>
+</html>
+

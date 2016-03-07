@@ -6,7 +6,6 @@
 package at.htlpinkafeld.service;
 
 import at.htlpinkafeld.pojo.Pupil;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,6 +41,10 @@ public class PupilManagerService {
         return pupList.set(index, pupil);
     }
 
+    public int indexOf(Object o) {
+        return pupList.indexOf(o);
+    }
+    
     public List<Pupil> getPupList() {
         return pupList;
     }

@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2"
+              xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+    <managed-bean>
+        <managed-bean-name>phoneNumberBean</managed-bean-name>
+        <managed-bean-class>at.htlpinkafeld.phoneNValidator.PhoneNumberBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <converter>
+        <converter-id>PhoneNumberCnvId</converter-id>
+        <converter-class>at.htlpinkafeld.phoneNValidator.PhoneNumberConverter</converter-class>
+    </converter>
+    <validator>
+        <validator-id>PhoneNumberValidatorID</validator-id>
+        <validator-class>at.htlpinkafeld.phoneNValidator.PhoneNumberValidator</validator-class>
+    </validator>
+    
+</faces-config>

@@ -47,11 +47,14 @@
         </h:form>
         <h:form>
             <h2>selectOneMenu with var-Attribute in selectItems-Tag</h2>
-            <h:selectOneMenu value="#{pricelistBean.PId}">
-                <f:selectItems value="#{pricelistBean.prodList}" var="pr" itemValue="#{pr.id}" itemLabel="#{pr.name}"/>
+            <h:selectOneMenu value="#{pricelistBean.selProd}">
+                <f:selectItems value="#{pricelistBean.prodList}" var="pr" itemValue="#{pr}" itemLabel="#{pr.name}"/>
+                <f:converter converterId="productConverterID"/>
             </h:selectOneMenu>            
             <h:commandButton value="Get ID" />
-            <h:outputText value="#{pricelistBean.PId}"/>
+            <h:outputText value="#{pricelistBean.selProd.id}"/>
+            <br/>
+            <h:commandButton value="Edit selected product" action="#{productBean.editProd(pricelistBean.selProd)}"/>
         </h:form>
     </h:body>
 </html>

@@ -14,12 +14,13 @@ import javax.ws.rs.Produces;
  *
  * @author Martin Six
  */
-@Path("users/{username}")
+@Path("users")
 public class Users{
 
  
 
 @GET
+@Path("{username}")
 @Produces("text/plain")
 public String getUser(@PathParam("username") String  username){
       return "Got user: "+username;
