@@ -22,10 +22,18 @@ public class FractionConverter implements Converter {
         if (string != null) {
             try {
                 String[] parts = string.split("/");
-                if (parts.length > 2 || parts.length < 2) {
+                if (parts.length == 2) {
+                    if (parts[0].contains(" ")) {
+                        String[] num = parts[0].split(" ");
+                        frac = new Fraction(Integer.parseInt(num[0].trim()) * Integer.parseInt(parts[1].trim() + Integer.parseInt(num[1].trim())), Integer.parseInt(parts[1].trim()));
+                    } else {
+                        frac = new Fraction(Integer.parseInt(parts[0].trim()), Integer.parseInt(parts[1].trim()));
+                    }
+                } else if (parts.length == 1) {
+                    frac = new Fraction(Integer.parseInt(parts[0].trim()), 1);
+                } else {
                     throw new ConverterException("Invalid Fraction-Format");
                 }
-                frac = new Fraction(Integer.parseInt(parts[0].trim()), Integer.parseInt(parts[1].trim()));
             } catch (Exception e) {
                 throw new ConverterException("Invalid Fraction-Format");
             }
@@ -36,7 +44,15 @@ public class FractionConverter implements Converter {
     @Override
     public String getAsString(FacesContext fc, UIComponent uic, Object o) {
         Fraction f = (Fraction) o;
-        return f.getNum() + "/" + f.getDenom();
+        if (f.getDenom() != 1) {
+            if (f.getNum() < f.getDenom()) {
+                return f.getNum() + "/" + f.getDenom();
+            } else {
+                return f.getNum()/f.getDenom()+" "+f.getNum()%f.getDenom() + "/" + f.getDenom();
+            }
+        } else {
+            return Integer.toString(f.getNum());
+        }
     }
 
 }

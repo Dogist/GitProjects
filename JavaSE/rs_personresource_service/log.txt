@@ -1,0 +1,176 @@
+10.05.2016 16:47:19  WARN ConnectionManagerImpl:192 - Verbindung war nicht ge?ffnet: jdbc:hsqldb:mem:test;shutdown=true/test
+10.05.2016 16:47:19 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+10.05.2016 16:47:19 DEBUG DAOHelper:289 - Table in HSQLDB created: create table if not exists Person (id integer identity not null, firstName varchar(255), lastName varchar(255), email varchar(255) )
+10.05.2016 16:47:19 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+10.05.2016 16:47:19 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+10.05.2016 16:47:19 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+10.05.2016 16:48:12  WARN ConnectionManagerImpl:192 - Verbindung war nicht ge?ffnet: jdbc:hsqldb:mem:test;shutdown=true/test
+10.05.2016 16:48:12 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+10.05.2016 16:48:12 DEBUG DAOHelper:289 - Table in HSQLDB created: create table if not exists Person (id integer identity not null, firstName varchar(255), lastName varchar(255), email varchar(255) )
+10.05.2016 16:48:12 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+10.05.2016 16:48:12 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+10.05.2016 16:48:12 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+10.05.2016 16:48:39  WARN ConnectionManagerImpl:192 - Verbindung war nicht ge?ffnet: jdbc:hsqldb:mem:test;shutdown=true/test
+10.05.2016 16:48:40 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+10.05.2016 16:48:40 DEBUG DAOHelper:289 - Table in HSQLDB created: create table if not exists Person (id integer identity not null, firstName varchar(255), lastName varchar(255), email varchar(255) )
+10.05.2016 16:48:40 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+10.05.2016 16:48:40 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+10.05.2016 16:48:40 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+10.05.2016 16:50:19  WARN ConnectionManagerImpl:192 - Verbindung war nicht ge?ffnet: jdbc:hsqldb:mem:test;shutdown=true/test
+10.05.2016 16:50:19 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+10.05.2016 16:50:19 DEBUG DAOHelper:289 - Table in HSQLDB created: create table if not exists Person (id integer identity not null, firstName varchar(255), lastName varchar(255), email varchar(255) )
+10.05.2016 16:50:19 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+10.05.2016 16:50:19 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+10.05.2016 16:50:19 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+10.05.2016 16:51:36  WARN ConnectionManagerImpl:192 - Verbindung war nicht ge?ffnet: jdbc:hsqldb:mem:test;shutdown=true/test
+10.05.2016 16:51:37 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+10.05.2016 16:51:37 DEBUG DAOHelper:289 - Table in HSQLDB created: create table if not exists Person (id integer identity not null, firstName varchar(255), lastName varchar(255), email varchar(255) )
+10.05.2016 16:52:04 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+10.05.2016 16:52:17 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+10.05.2016 16:53:17  WARN ConnectionManagerImpl:192 - Verbindung war nicht ge?ffnet: jdbc:hsqldb:mem:test;shutdown=true/test
+10.05.2016 16:53:17 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+10.05.2016 16:53:17 DEBUG DAOHelper:289 - Table in HSQLDB created: create table if not exists Person (id integer identity not null, firstName varchar(255), lastName varchar(255), email varchar(255) )
+10.05.2016 17:01:23  WARN ConnectionManagerImpl:192 - Verbindung war nicht ge?ffnet: jdbc:hsqldb:mem:test;shutdown=true/test
+10.05.2016 17:01:24 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+10.05.2016 17:01:24 DEBUG DAOHelper:289 - Table in HSQLDB created: create table if not exists Person (id integer identity not null, firstName varchar(255), lastName varchar(255), email varchar(255) )
+10.05.2016 17:12:56 DEBUG DAOHelper:33 - ConnectionManager is not set in DAOHelper
+10.05.2016 17:12:56  WARN ConnectionManagerImpl:192 - Verbindung war nicht ge?ffnet: jdbc:hsqldb:mem:test;shutdown=true/test
+10.05.2016 17:12:57 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+10.05.2016 17:12:57 DEBUG DAOHelper:289 - Table in HSQLDB created: create table if not exists Person (id integer identity not null, firstName varchar(255), lastName varchar(255), email varchar(255) )
+10.05.2016 17:14:49 DEBUG DAOHelper:33 - ConnectionManager is not set in DAOHelper
+10.05.2016 17:14:49  WARN ConnectionManagerImpl:192 - Verbindung war nicht ge?ffnet: jdbc:hsqldb:mem:test;shutdown=true/test
+10.05.2016 17:14:50 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+10.05.2016 17:14:50 DEBUG DAOHelper:289 - Table in HSQLDB created: create table if not exists Person (id integer identity not null, firstName varchar(255), lastName varchar(255), email varchar(255) )
+10.05.2016 17:15:06 DEBUG DAOHelper:33 - ConnectionManager is not set in DAOHelper
+10.05.2016 17:15:06  WARN ConnectionManagerImpl:192 - Verbindung war nicht ge?ffnet: jdbc:hsqldb:mem:test;shutdown=true/test
+10.05.2016 17:15:06 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+10.05.2016 17:15:06 DEBUG DAOHelper:289 - Table in HSQLDB created: create table if not exists Person (id integer identity not null, firstName varchar(255), lastName varchar(255), email varchar(255) )
+10.05.2016 17:15:48 DEBUG DAOHelper:33 - ConnectionManager is not set in DAOHelper
+10.05.2016 17:15:48  WARN ConnectionManagerImpl:192 - Verbindung war nicht ge?ffnet: jdbc:hsqldb:mem:test;shutdown=true/test
+10.05.2016 17:15:49 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+10.05.2016 17:15:49 DEBUG DAOHelper:289 - Table in HSQLDB created: create table if not exists Person (id integer identity not null, firstName varchar(255), lastName varchar(255), email varchar(255) )
+10.05.2016 17:16:12 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+10.05.2016 17:16:30  WARN ConnectionManagerImpl:192 - Verbindung war nicht ge?ffnet: jdbc:hsqldb:mem:test;shutdown=true/test
+10.05.2016 17:16:30 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+10.05.2016 17:16:30 DEBUG DAOHelper:289 - Table in HSQLDB created: create table if not exists Person (id integer identity not null, firstName varchar(255), lastName varchar(255), email varchar(255) )
+10.05.2016 17:18:00  WARN ConnectionManagerImpl:192 - Verbindung war nicht ge?ffnet: jdbc:hsqldb:mem:test;shutdown=true/test
+10.05.2016 17:18:01 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+10.05.2016 17:18:01 DEBUG DAOHelper:289 - Table in HSQLDB created: create table if not exists Person (id integer identity not null, firstName varchar(255), lastName varchar(255), email varchar(255) )
+10.05.2016 17:18:01 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+10.05.2016 17:18:01 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+10.05.2016 17:18:01 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+10.05.2016 17:19:19  WARN ConnectionManagerImpl:192 - Verbindung war nicht ge?ffnet: jdbc:hsqldb:mem:test;shutdown=true/test
+10.05.2016 17:19:19 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+10.05.2016 17:19:19 DEBUG DAOHelper:289 - Table in HSQLDB created: create table if not exists Person (id integer identity not null, firstName varchar(255), lastName varchar(255), email varchar(255) )
+10.05.2016 17:21:38  WARN ConnectionManagerImpl:192 - Verbindung war nicht ge?ffnet: jdbc:hsqldb:mem:test;shutdown=true/test
+10.05.2016 17:21:38 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+10.05.2016 17:21:38 DEBUG DAOHelper:289 - Table in HSQLDB created: create table if not exists Person (id integer identity not null, firstName varchar(255), lastName varchar(255), email varchar(255) )
+10.05.2016 17:24:11  WARN ConnectionManagerImpl:192 - Verbindung war nicht ge?ffnet: jdbc:hsqldb:mem:test;shutdown=true/test
+10.05.2016 17:24:11 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+10.05.2016 17:24:11 DEBUG DAOHelper:289 - Table in HSQLDB created: create table if not exists Person (id integer identity not null, firstName varchar(255), lastName varchar(255), email varchar(255) )
+10.05.2016 17:25:19  WARN ConnectionManagerImpl:192 - Verbindung war nicht ge?ffnet: jdbc:hsqldb:mem:test;shutdown=true/test
+10.05.2016 17:25:20 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+10.05.2016 17:25:20 DEBUG DAOHelper:289 - Table in HSQLDB created: create table if not exists Person (id integer identity not null, firstName varchar(255), lastName varchar(255), email varchar(255) )
+10.05.2016 17:25:44  WARN ConnectionManagerImpl:192 - Verbindung war nicht ge?ffnet: jdbc:hsqldb:mem:test;shutdown=true/test
+10.05.2016 17:25:45 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+10.05.2016 17:25:45 DEBUG DAOHelper:289 - Table in HSQLDB created: create table if not exists Person (id integer identity not null, firstName varchar(255), lastName varchar(255), email varchar(255) )
+10.05.2016 17:26:07  WARN ConnectionManagerImpl:192 - Verbindung war nicht ge?ffnet: jdbc:hsqldb:mem:test;shutdown=true/test
+10.05.2016 17:26:07 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+10.05.2016 17:26:07 DEBUG DAOHelper:289 - Table in HSQLDB created: create table if not exists Person (id integer identity not null, firstName varchar(255), lastName varchar(255), email varchar(255) )
+10.05.2016 17:26:40  WARN ConnectionManagerImpl:192 - Verbindung war nicht ge?ffnet: jdbc:hsqldb:mem:test;shutdown=true/test
+10.05.2016 17:26:40 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+10.05.2016 17:26:40 DEBUG DAOHelper:289 - Table in HSQLDB created: create table if not exists Person (id integer identity not null, firstName varchar(255), lastName varchar(255), email varchar(255) )
+14.05.2016 09:25:03  WARN ConnectionManagerImpl:192 - Verbindung war nicht ge?ffnet: jdbc:hsqldb:mem:test;shutdown=true/test
+14.05.2016 09:25:04 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+14.05.2016 09:25:04 DEBUG DAOHelper:289 - Table in HSQLDB created: create table if not exists Person (id integer identity not null, firstName varchar(255), lastName varchar(255), email varchar(255) )
+14.05.2016 09:25:36  WARN ConnectionManagerImpl:192 - Verbindung war nicht ge?ffnet: jdbc:hsqldb:mem:test;shutdown=true/test
+14.05.2016 09:25:36 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+14.05.2016 09:25:36 DEBUG DAOHelper:289 - Table in HSQLDB created: create table if not exists Person (id integer identity not null, firstName varchar(255), lastName varchar(255), email varchar(255) )
+14.05.2016 09:25:54  WARN ConnectionManagerImpl:192 - Verbindung war nicht ge?ffnet: jdbc:hsqldb:mem:test;shutdown=true/test
+14.05.2016 09:25:54 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+14.05.2016 09:25:54 DEBUG DAOHelper:289 - Table in HSQLDB created: create table if not exists Person (id integer identity not null, firstName varchar(255), lastName varchar(255), email varchar(255) )
+14.05.2016 09:26:58  WARN ConnectionManagerImpl:192 - Verbindung war nicht ge?ffnet: jdbc:hsqldb:mem:test;shutdown=true/test
+14.05.2016 09:26:58 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+14.05.2016 09:26:58 DEBUG DAOHelper:289 - Table in HSQLDB created: create table if not exists Person (id integer identity not null, firstName varchar(255), lastName varchar(255), email varchar(255) )
+14.05.2016 09:27:27  WARN ConnectionManagerImpl:192 - Verbindung war nicht ge?ffnet: jdbc:hsqldb:mem:test;shutdown=true/test
+14.05.2016 09:27:27 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+14.05.2016 09:27:27 DEBUG DAOHelper:289 - Table in HSQLDB created: create table if not exists Person (id integer identity not null, firstName varchar(255), lastName varchar(255), email varchar(255) )
+14.05.2016 09:27:52  WARN ConnectionManagerImpl:192 - Verbindung war nicht ge?ffnet: jdbc:hsqldb:mem:test;shutdown=true/test
+14.05.2016 09:27:52 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+14.05.2016 09:27:52 DEBUG DAOHelper:289 - Table in HSQLDB created: create table if not exists Person (id integer identity not null, firstName varchar(255), lastName varchar(255), email varchar(255) )
+14.05.2016 09:29:36  WARN ConnectionManagerImpl:192 - Verbindung war nicht ge?ffnet: jdbc:hsqldb:mem:test;shutdown=true/test
+14.05.2016 09:29:36 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+14.05.2016 09:29:36 DEBUG DAOHelper:289 - Table in HSQLDB created: create table if not exists Person (id integer identity not null, firstName varchar(255), lastName varchar(255), email varchar(255) )
+14.05.2016 09:30:03  WARN ConnectionManagerImpl:192 - Verbindung war nicht ge?ffnet: jdbc:hsqldb:mem:test;shutdown=true/test
+14.05.2016 09:30:03 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+14.05.2016 09:30:03 DEBUG DAOHelper:289 - Table in HSQLDB created: create table if not exists Person (id integer identity not null, firstName varchar(255), lastName varchar(255), email varchar(255) )
+14.05.2016 09:30:14  WARN ConnectionManagerImpl:192 - Verbindung war nicht ge?ffnet: jdbc:hsqldb:mem:test;shutdown=true/test
+14.05.2016 09:30:14 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+14.05.2016 09:30:14 DEBUG DAOHelper:289 - Table in HSQLDB created: create table if not exists Person (id integer identity not null, firstName varchar(255), lastName varchar(255), email varchar(255) )
+14.05.2016 09:31:17  WARN ConnectionManagerImpl:192 - Verbindung war nicht ge?ffnet: jdbc:hsqldb:mem:test;shutdown=true/test
+14.05.2016 09:31:17 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+14.05.2016 09:31:17 DEBUG DAOHelper:289 - Table in HSQLDB created: create table if not exists Person (id integer identity not null, firstName varchar(255), lastName varchar(255), email varchar(255) )
+14.05.2016 09:32:30  WARN ConnectionManagerImpl:192 - Verbindung war nicht ge?ffnet: jdbc:hsqldb:mem:test;shutdown=true/test
+14.05.2016 09:32:31 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+14.05.2016 09:32:31 DEBUG DAOHelper:289 - Table in HSQLDB created: create table if not exists Person (id integer identity not null, firstName varchar(255), lastName varchar(255), email varchar(255) )
+14.05.2016 09:34:24  WARN ConnectionManagerImpl:192 - Verbindung war nicht ge?ffnet: jdbc:hsqldb:mem:test;shutdown=true/test
+14.05.2016 09:34:24 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+14.05.2016 09:34:24 DEBUG DAOHelper:289 - Table in HSQLDB created: create table if not exists Person (id integer identity not null, firstName varchar(255), lastName varchar(255), email varchar(255) )
+14.05.2016 09:35:01  WARN ConnectionManagerImpl:192 - Verbindung war nicht ge?ffnet: jdbc:hsqldb:mem:test;shutdown=true/test
+14.05.2016 09:35:01 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+14.05.2016 09:35:01 DEBUG DAOHelper:289 - Table in HSQLDB created: create table if not exists Person (id integer identity not null, firstName varchar(255), lastName varchar(255), email varchar(255) )
+14.05.2016 09:35:57  WARN ConnectionManagerImpl:192 - Verbindung war nicht ge?ffnet: jdbc:hsqldb:mem:test;shutdown=true/test
+14.05.2016 09:35:58 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+14.05.2016 09:35:58 DEBUG DAOHelper:289 - Table in HSQLDB created: create table if not exists Person (id integer identity not null, firstName varchar(255), lastName varchar(255), email varchar(255) )
+14.05.2016 09:36:24  WARN ConnectionManagerImpl:192 - Verbindung war nicht ge?ffnet: jdbc:hsqldb:mem:test;shutdown=true/test
+14.05.2016 09:36:25 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+14.05.2016 09:36:25 DEBUG DAOHelper:289 - Table in HSQLDB created: create table if not exists Person (id integer identity not null, firstName varchar(255), lastName varchar(255), email varchar(255) )
+14.05.2016 09:38:37  WARN ConnectionManagerImpl:192 - Verbindung war nicht ge?ffnet: jdbc:hsqldb:mem:test;shutdown=true/test
+14.05.2016 09:38:37 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+14.05.2016 09:38:37 DEBUG DAOHelper:289 - Table in HSQLDB created: create table if not exists Person (id integer identity not null, firstName varchar(255), lastName varchar(255), email varchar(255) )
+14.05.2016 09:39:39  WARN ConnectionManagerImpl:192 - Verbindung war nicht ge?ffnet: jdbc:hsqldb:mem:test;shutdown=true/test
+14.05.2016 09:39:39 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+14.05.2016 09:39:39 DEBUG DAOHelper:289 - Table in HSQLDB created: create table if not exists Person (id integer identity not null, firstName varchar(255), lastName varchar(255), email varchar(255) )
+14.05.2016 09:41:01  WARN ConnectionManagerImpl:192 - Verbindung war nicht ge?ffnet: jdbc:hsqldb:mem:test;shutdown=true/test
+14.05.2016 09:41:01 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+14.05.2016 09:41:01 DEBUG DAOHelper:289 - Table in HSQLDB created: create table if not exists Person (id integer identity not null, firstName varchar(255), lastName varchar(255), email varchar(255) )
+14.05.2016 09:46:41  WARN ConnectionManagerImpl:192 - Verbindung war nicht ge?ffnet: jdbc:hsqldb:mem:test;shutdown=true/test
+14.05.2016 09:46:42 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+14.05.2016 09:46:42 DEBUG DAOHelper:289 - Table in HSQLDB created: create table if not exists Person (id integer identity not null, firstName varchar(255), lastName varchar(255), email varchar(255) )
+14.05.2016 09:52:14  WARN ConnectionManagerImpl:192 - Verbindung war nicht ge?ffnet: jdbc:hsqldb:mem:test;shutdown=true/test
+14.05.2016 09:52:32  WARN ConnectionManagerImpl:192 - Verbindung war nicht ge?ffnet: jdbc:hsqldb:mem:test;shutdown=true/test
+14.05.2016 09:52:33 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+14.05.2016 09:52:33 DEBUG DAOHelper:289 - Table in HSQLDB created: create table if not exists Person (id integer identity not null, firstName varchar(255), lastName varchar(255), email varchar(255) )
+14.05.2016 09:58:21  WARN ConnectionManagerImpl:192 - Verbindung war nicht ge?ffnet: jdbc:hsqldb:mem:test;shutdown=true/test
+14.05.2016 09:58:21 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+14.05.2016 09:58:21 DEBUG DAOHelper:289 - Table in HSQLDB created: create table if not exists Person (id integer identity not null, firstName varchar(255), lastName varchar(255), email varchar(255) )
+14.05.2016 09:58:21 DEBUG ConnectionManagerImpl:189 - Verbindung geschlossen: jdbc:hsqldb:mem:crm
+14.05.2016 09:58:21 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+14.05.2016 09:58:21 DEBUG DAOHelper:289 - Table in HSQLDB created: create table if not exists Person (id integer identity not null, firstName varchar(255), lastName varchar(255), email varchar(255) )
+14.05.2016 10:01:49  WARN ConnectionManagerImpl:192 - Verbindung war nicht ge?ffnet: jdbc:hsqldb:mem:test;shutdown=true/test
+14.05.2016 10:01:49 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+14.05.2016 10:01:49 DEBUG DAOHelper:289 - Table in HSQLDB created: create table if not exists Person (id integer identity not null, firstName varchar(255), lastName varchar(255), email varchar(255) )
+14.05.2016 10:01:49 DEBUG ConnectionManagerImpl:189 - Verbindung geschlossen: jdbc:hsqldb:mem:crm
+14.05.2016 10:01:49 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+14.05.2016 10:01:49 DEBUG DAOHelper:289 - Table in HSQLDB created: create table if not exists Person (id integer identity not null, firstName varchar(255), lastName varchar(255), email varchar(255) )
+14.05.2016 10:03:20  WARN ConnectionManagerImpl:192 - Verbindung war nicht ge?ffnet: jdbc:hsqldb:mem:test;shutdown=true/test
+14.05.2016 10:03:20 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+14.05.2016 10:03:20 DEBUG DAOHelper:289 - Table in HSQLDB created: create table if not exists Person (id integer identity not null, firstName varchar(255), lastName varchar(255), email varchar(255) )
+14.05.2016 10:03:26  WARN ConnectionManagerImpl:192 - Verbindung war nicht ge?ffnet: jdbc:hsqldb:mem:test;shutdown=true/test
+14.05.2016 10:03:26 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+14.05.2016 10:03:26 DEBUG DAOHelper:289 - Table in HSQLDB created: create table if not exists Person (id integer identity not null, firstName varchar(255), lastName varchar(255), email varchar(255) )
+14.05.2016 10:03:32  WARN ConnectionManagerImpl:192 - Verbindung war nicht ge?ffnet: jdbc:hsqldb:mem:test;shutdown=true/test
+14.05.2016 10:03:33 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+14.05.2016 10:03:33 DEBUG DAOHelper:289 - Table in HSQLDB created: create table if not exists Person (id integer identity not null, firstName varchar(255), lastName varchar(255), email varchar(255) )
+14.05.2016 10:08:36  WARN ConnectionManagerImpl:192 - Verbindung war nicht ge?ffnet: jdbc:hsqldb:mem:test;shutdown=true/test
+14.05.2016 10:08:37 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+14.05.2016 10:08:37 DEBUG DAOHelper:289 - Table in HSQLDB created: create table if not exists Person (id integer identity not null, firstName varchar(255), lastName varchar(255), email varchar(255) )
+14.05.2016 10:14:38  WARN ConnectionManagerImpl:192 - Verbindung war nicht ge?ffnet: jdbc:hsqldb:mem:test;shutdown=true/test
+14.05.2016 10:14:39 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+14.05.2016 10:14:39 DEBUG DAOHelper:289 - Table in HSQLDB created: create table if not exists Person (id integer identity not null, firstName varchar(255), lastName varchar(255), email varchar(255) )
+14.05.2016 10:28:16  WARN ConnectionManagerImpl:192 - Verbindung war nicht ge?ffnet: jdbc:hsqldb:mem:test;shutdown=true/test
+14.05.2016 10:28:16 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+14.05.2016 10:28:16 DEBUG DAOHelper:289 - Table in HSQLDB created: create table if not exists Person (id integer identity not null, firstName varchar(255), lastName varchar(255), email varchar(255) )
+14.05.2016 10:28:16 DEBUG ConnectionManagerImpl:189 - Verbindung geschlossen: jdbc:hsqldb:mem:crm
+14.05.2016 10:28:16 DEBUG ConnectionManagerImpl:159 - Verbindung hergestellt: jdbc:hsqldb:mem:crm User: sqluser Password: 12init34
+14.05.2016 10:28:16 DEBUG DAOHelper:289 - Table in HSQLDB created: create table if not exists Person (id integer identity not null, firstName varchar(255), lastName varchar(255), email varchar(255) )

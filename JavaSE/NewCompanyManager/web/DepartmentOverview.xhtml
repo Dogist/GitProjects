@@ -1,0 +1,51 @@
+<ui:composition template="./WEB-INF/templates/mainLayout.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:define name="content">
+        <h:panelGrid columns="2">
+            <h:form id="DeptOverview">
+                <h:panelGroup>
+                    <h:dataTable value="#{departmentOverviewBean.deptList}" var="dep">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="DEPTNO"/>
+                            </f:facet>
+                            <h:outputText value="#{dep.id}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="DNAME"/>
+                            </f:facet>
+                            <h:outputText value="#{dep.name}"/>
+                        </h:column>
+                        <h:column>
+                            <h:commandButton value="Delete" action="#{departmentOverviewBean.deleteDeptAction(dep)}"/>
+                        </h:column>
+                        <h:column>
+                            <h:commandButton value="Edit" action="#{departmentOverviewBean.editDeptAction(dep)}" />
+                        </h:column>
+                        <f:facet name="footer">
+                            <h:commandButton value="New Department" action="#{departmentOverviewBean.newCurDeptAction}"/>
+                        </f:facet>
+                    </h:dataTable>
+                </h:panelGroup>
+            </h:form>
+            <h:form id="DeptDetail">
+                <h:panelGroup>
+                    <h:panelGrid columns="2">
+                        <h:outputText value="DEPTNO:"/>
+                        <h:inputText value="#{departmentOverviewBean.curDept.id}" readonly="true"/>
+                        <h:outputText value="DNAME:"/>
+                        <h:inputText value="#{departmentOverviewBean.curDept.name}" required="true"/>
+                        <h:outputText value="LOC:"/>
+                        <h:inputText value="#{departmentOverviewBean.curDept.loc}" required="true"/>
+                        <h:commandButton value="Save" action="#{departmentOverviewBean.saveCurDeptAction}"/>
+                        <h:commandButton value="Cancel" action="#{departmentOverviewBean.newCurDeptAction}" immediate="true"/>
+                    </h:panelGrid>
+                </h:panelGroup>
+            </h:form>
+        </h:panelGrid>
+    </ui:define>
+</ui:composition>

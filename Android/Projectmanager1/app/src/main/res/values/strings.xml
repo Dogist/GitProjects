@@ -1,0 +1,56 @@
+<resources>
+    <string name="app_name">Projectmanager</string>
+
+    <string name="id">ID:</string>
+    <string name="id_text">Enter ID</string>
+    <string name="title">Title:</string>
+    <string name="title_text">Enter title</string>
+    <string name="job">Job:</string>
+    <string name="job_text">Enter job title</string>
+    <string name="fName">First Name:</string>
+    <string name="fName_text">Enter first name</string>
+    <string name="lName">Last Name:</string>
+    <string name="lName_text">Enter last name</string>
+    <string name="dep">Department:</string>
+    <string name="dep_text">Enter department</string>
+    <string name="name">Name:</string>
+    <string name="name_text">Enter Name</string>
+    <string name="contractor">Contractor:</string>
+    <string name="contractor_text">Enter Contractor</string>
+    <string name="process_model">Process Model:</string>
+    <string name="process_model_text">Enter Process Model</string>
+    <string name="start_date">Start date:</string>
+    <string name="start_date_text">Enter start date</string>
+    <string name="end_date">End date:</string>
+    <string name="end_date_text">Enter end date</string>
+    <string name="desc">Description:</string>
+    <string name="desc_text">Enter Description</string>
+    <string name="prior">Priority:</string>
+    <string name="prior_text">Enter Priority</string>
+    <string name="effort">Effort:</string>
+    <string name="effort_text">Enter Effort</string>
+
+    <string name="button_new">NEW</string>
+    <string name="button_save">SAVE</string>
+    <string name="button_delete">DELETE</string>
+
+    <string name="title_activity_main">MainActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="Project">Project:</string>
+    <string name="memberListHead">TeamMembers</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="menu_new">New</string>
+    <string name="menu_save">Save</string>
+    <string name="menu_delete">Delete</string>
+    <string name="menu_writeActivities">Write Activities</string>
+    <string name="menu_showActivities">Show Activities</string>
+
+    <string-array name="process_model_entries">
+        <item>Waterfall</item>
+        <item>Scrum</item>
+        <item>Extreme</item>
+        <item>RUP</item>
+        <item>V-Model</item>
+    </string-array>
+</resources>

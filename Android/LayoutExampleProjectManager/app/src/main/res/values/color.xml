@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ToolBar">#ef1b1c1c</color>
+    <color name="ColorPrimary">#e6c268</color>
+    <color name="ColorPrimaryDark">#b89b54</color>
+    <color name="ColorPrimaryTransp">#b4e6c268</color>
+    <color name="tabsScrollColor">#b87e0c</color>
+</resources>

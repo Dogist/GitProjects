@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:key="pref_key_storage_settings"
+        android:title="@string/pref_main">
+        <EditTextPreference
+            android:key="@string/pref_key_user_email"
+            android:summary="@string/pref_summary_user_email"
+            android:title="@string/pref_title_user_email" />
+        <EditTextPreference
+            android:key="@string/pref_key_default_priority"
+            android:summary="@string/pref_summary_default_priority"
+            android:title="@string/pref_title_default_priority" />
+        <ListPreference
+            android:key="@string/pref_key_default_processmodel"
+            android:summary="@string/pref_summary_default_processmodel"
+            android:title="@string/pref_title_default_processmodel"
+            android:entries="@array/pref_processmodel_entries"
+            android:entryValues="@array/pref_processmodel_entries"
+            android:defaultValue="@string/pref_processmodel_default"
+            android:negativeButtonText="@null"
+            android:positiveButtonText="@null" />
+    </PreferenceCategory>
+</PreferenceScreen>

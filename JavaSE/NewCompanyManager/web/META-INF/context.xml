@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/NewCompanyManager">
+    <Resource name="jdbc/company"
+              auth="Container"
+              type="javax.sql.DataSource"
+              username="db"
+              password=""
+              driverClassName="org.hsqldb.jdbcDriver"
+              url="jdbc:hsqldb:file:C:/Users/User/Documents/NetBeansDB/Company/company;shutdown=true;ifexists=true;hsqldb.lock_file=false;"
+              maxWait="10000"
+              maxActive="8"
+              maxIdle="4" />
+
+</Context>

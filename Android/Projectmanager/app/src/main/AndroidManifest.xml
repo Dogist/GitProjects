@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="htlpinkafeld.at.projectmanager" >
+    package="at.htlpinkafeld.projectmanager" >
+
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
 
     <application
         android:allowBackup="true"
@@ -15,6 +18,24 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".gui.SettingsActivity"
+            android:label="settings" />
+
+        <provider
+            android:name=".cp.PMProvider"
+            android:authorities="at.htlpinkafeld.projectmanager"
+            android:readPermission="at.htlpinkafeld.projectmanager.READ"
+            android:writePermission="at.htlpinkafeld.projectmanager.WRITE" />
+
+        <activity
+            android:name=".gui.DurationCalculator"
+            android:label="@string/title_activity_duration_calculator"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="at.htlpinkafeld.projectmanager.MainActivity" />
         </activity>
     </application>
 

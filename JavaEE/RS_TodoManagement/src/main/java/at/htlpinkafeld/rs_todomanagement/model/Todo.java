@@ -13,6 +13,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @XmlRootElement
 public class Todo {
+
     private String id;
     private String summary;
     private String description;

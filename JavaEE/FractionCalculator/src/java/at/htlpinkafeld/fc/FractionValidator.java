@@ -20,7 +20,7 @@ public class FractionValidator implements Validator {
     @Override
     public void validate(FacesContext fc, UIComponent uic, Object o) throws ValidatorException {
         Fraction f = (Fraction) o;
-        if (Math.abs(f.getNum()) >= f.getDenom()) {
+        if (Math.abs(f.getNum()) > f.getDenom()) {
             throw new ValidatorException(new FacesMessage("No proper Fraction!"));
         }
     }

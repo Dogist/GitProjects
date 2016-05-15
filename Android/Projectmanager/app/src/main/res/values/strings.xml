@@ -36,4 +36,27 @@
 
     <string name="title_activity_main">MainActivity</string>
     <string name="action_settings">Settings</string>
+    <string name="Project">Project:</string>
+    <string name="memberListHead">TeamMembers</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="menu_new">New</string>
+    <string name="menu_save">Save</string>
+    <string name="menu_delete">Delete</string>
+    <string name="menu_writeActivities">Write Activities</string>
+    <string name="menu_showActivities">Show Activities</string>
+
+    <string-array name="process_model_entries">
+        <item>Waterfall</item>
+        <item>Scrum</item>
+        <item>Extreme</item>
+        <item>RUP</item>
+        <item>V-Model</item>
+    </string-array>
+    <string name="title_activity_duration_calculator">DurationCalculator</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="duration">Duration</string>
+    <string name="cancel">Cancel</string>
+    <string name="duration_calculator">Duration Calculator</string>
 </resources>

@@ -6,7 +6,7 @@
               username="db"
               password=""
               driverClassName="org.hsqldb.jdbcDriver"
-              url="jdbc:hsqldb:file:C:/Users/User/Documents/NetBeansProjects/GitProjects/JavaEE/CompanyManager/data/company;shutdown=true"
+              url="jdbc:hsqldb:file:C:/Users/User/Documents/NetBeansProjects/GitProjects/JavaEE/CompanyManager/data/company;shutdown=true;singelton=true"
               maxWait="10000"
               maxActive="8"
               maxIdle="4" />

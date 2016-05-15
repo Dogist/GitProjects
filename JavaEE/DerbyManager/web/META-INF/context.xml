@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/DerbyManager">
+    <Resource name="jdbc/sample"
+              auth="Container"
+              type="javax.sql.DataSource"
+              username="app"
+              password="app"
+              driverClassName="org.apache.derby.jdbc.ClientDriver"
+              url="jdbc:derby://localhost:1527/sample"
+              maxWait="10000"
+              maxActive="8"
+              maxIdle="4" />
+
+</Context>

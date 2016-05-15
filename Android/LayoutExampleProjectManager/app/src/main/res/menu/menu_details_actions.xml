@@ -1,0 +1,16 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+    <item
+        android:id="@+id/action_new"
+        android:title="@string/action_details_new"
+        android:icon="@drawable/ic_add_black_24dp" />
+    <item
+        android:id="@+id/action_save"
+        android:title="@string/action_details_save"
+        android:icon="@drawable/ic_save_black_24dp" />
+    <item
+        android:id="@+id/action_delete"
+        android:title="@string/action_details_delete"
+        android:icon="@drawable/ic_delete_black_24dp" />
+</menu>

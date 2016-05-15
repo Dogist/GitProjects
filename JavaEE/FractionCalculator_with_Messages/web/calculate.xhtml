@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>#{bundleVar.title}</title>
+    </h:head>
+    <h:body>
+        <f:view locale="#{localeBean.userLocale}">
+            <h:form>
+                <f:verbatim>
+                    <h1>#{bundleVar.calc}</h1>
+                </f:verbatim>
+                <f:ajax render="@this errors">
+                    <h:inputText value="#{fractionCalcBean.op1}" converter="fractionConverterID" required="true">
+                        <f:validator validatorId="fractionValidatorID"/>
+                    </h:inputText>
+                    <h:selectOneMenu value="#{fractionCalcBean.op}" required="true">
+                        <f:selectItems value="#{fractionCalcBean.selectedOp}"/>
+                    </h:selectOneMenu>
+                    <h:inputText value="#{fractionCalcBean.op2}" converter="fractionConverterID" required="true">
+                        <f:validator validatorId="fractionValidatorID"/>
+                    </h:inputText>
+                </f:ajax>
+                <h:commandButton value="=" action="#{fractionCalcBean.addFractionStatEvent}"/>
+                <h:outputText id="result" value="#{fractionCalcBean.result}" converter="fractionConverterID"/>
+                <br/>
+                <f:verbatim>
+                    <h2>#{bundleVar.history}</h2>
+                </f:verbatim>
+                <h:dataTable id="calcHist" value="#{fractionCalcBean.history}" var="fracStat">
+                    <h:column>
+                        <h:outputText value="#{fracStat.lval}" converter="fractionConverterID"/>
+                    </h:column>
+                    <h:column>
+                        <h:outputText value="#{fracStat.op}"/>
+                    </h:column>
+                    <h:column>
+                        <h:outputText value="#{fracStat.rval}" converter="fractionConverterID"/>
+                    </h:column>
+                    <h:column>
+                        <h:outputText value="="/>
+                    </h:column>
+                    <h:column>
+                        <h:outputText value="#{fracStat.result}" converter="fractionConverterID"/>
+                    </h:column>
+
+                    <h:column>
+                        <h:commandButton value="#{bundleVar.delete}" action="#{fractionCalcBean.removeFractionStat(fracStat)}"/>
+                    </h:column>
+                </h:dataTable>
+                <br/>
+                <h:commandButton value="#{bundleVar.home}" action="home" immediate="true"/>
+                <h:commandButton value="#{bundleVar.config}" action="config" immediate="true"/>
+                <h:messages id="errors"/>
+            </h:form>
+        </f:view>
+    </h:body>
+</html>

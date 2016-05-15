@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="Default Values"
+        android:key="pref_key_default_values">
+        <EditTextPreference
+            android:key="pref_key_email"
+            android:title="email"
+            android:defaultValue=""/>
+        <EditTextPreference
+            android:key="pref_key_default_actPriority"
+            android:title="default priority"
+            android:defaultValue=""/>
+        <ListPreference
+            android:key="pref_key_process_model_default"
+            android:title="default process model"
+            android:entries="@array/process_model_entries"
+            android:entryValues="@array/process_model_entries"/>
+
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:title="Calendar"
+        android:key="pref_key_calendar_values">
+        <EditTextPreference
+            android:key="pref_key_accountName"
+            android:title="account name"
+            android:defaultValue=""/>
+        <EditTextPreference
+            android:key="pref_key_accountType"
+            android:title="account Type"
+            android:defaultValue=""/>
+        <EditTextPreference
+            android:key="pref_key_ownerAccount"
+            android:title="owner account"
+            android:defaultValue=""/>
+    </PreferenceCategory>
+
+
+</PreferenceScreen>

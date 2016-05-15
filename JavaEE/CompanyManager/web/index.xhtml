@@ -1,12 +1,83 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Employee Bean</title>
     </h:head>
     <h:body>
-        Hello from Facelets
+        <h:form>
+            <h:outputLabel  value="Department ID:" />
+            <h:selectOneMenu value="#{departmentMaskBean.deptno}" >
+                <f:selectItems value="#{departmentMaskBean.deptList}" var="dept" itemValue="#{dept.deptno}"/>
+            </h:selectOneMenu>
+
+            <h:commandButton value="Show Employees" action="#{departmentMaskBean.loadEmpList}"/>
+
+            <h:dataTable value="#{departmentMaskBean.selEmpList}" var="emp">
+                <h:column>
+                    <f:facet name="header">
+                        empno
+                    </f:facet>
+                    <h:outputText value="#{emp.empno}"/>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        ename
+                    </f:facet>
+                    <h:outputText value="#{emp.ename}"/>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        job
+                    </f:facet>
+                    <h:outputText value="#{emp.job}"/>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        sal
+                    </f:facet>
+                    <h:outputText value="#{emp.sal}"/>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        comm
+                    </f:facet>
+                    <h:outputText value="#{emp.comm}"/>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        mgr
+                    </f:facet>
+                    <h:outputText value="#{emp.mgr}"/>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        deptno
+                    </f:facet>
+                    <h:outputText value="#{emp.deptno}"/>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        hiredate
+                    </f:facet>
+                    <h:outputText value="#{emp.hiredate}">
+                        <f:convertDateTime />
+                    </h:outputText>
+                </h:column>
+            </h:dataTable>
+
+            <br/><br/>
+
+        </h:form>
     </h:body>
 </html>
 
