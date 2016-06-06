@@ -5,6 +5,8 @@
  */
 package at.htlpinkafeld.rmi_adder;
 
+import java.net.MalformedURLException;
+import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
@@ -21,9 +23,9 @@ public class Client {
      * @throws java.rmi.RemoteException
      * @throws java.rmi.NotBoundException
      */
-    public static void main(String[] args) throws RemoteException, NotBoundException {
+    public static void main(String[] args) throws RemoteException, NotBoundException, MalformedURLException {
         Registry registry = LocateRegistry.getRegistry();
-        Adder adder = (Adder) registry.lookup("Adder");
+         Adder adder = (Adder) Naming.lookup("Adder");
         System.out.println(adder.add(47, 11));
     }
 

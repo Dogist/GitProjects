@@ -19,6 +19,7 @@ public class TimeServiceImpl extends UnicastRemoteObject implements TimeService 
     public TimeServiceImpl() throws RemoteException {
     }
 
+    @Override
     public String getTime() throws RemoteException {
         GregorianCalendar cal = new GregorianCalendar();
         StringBuffer sb = new StringBuffer();
@@ -28,6 +29,7 @@ public class TimeServiceImpl extends UnicastRemoteObject implements TimeService 
         return sb.toString();
     }
 
+    @Override
     public TimeStore storeTime(TimeStore store) throws RemoteException {
         store.setTime(getTime());
         return store;

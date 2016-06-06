@@ -1,5 +1,10 @@
 package at.htlpinkafeld.projectmanager.pojo;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.List;
+
 /**
  * Created by User on 12.10.2015.
  */
@@ -12,6 +17,16 @@ public class TeamMember {
     private String dept;
 
     public TeamMember() {
+    }
+
+    public TeamMember(JSONObject jsonObject){
+        id=-1;
+        title=jsonObject.optString("title");
+        job=jsonObject.optString("jobtitle");
+        fname=jsonObject.optString("firstname");
+        lname=jsonObject.optString("lastname");
+        dept=jsonObject.optString("department");
+
     }
 
     public TeamMember(Integer id, String title, String job, String fname, String lname, String dept) {

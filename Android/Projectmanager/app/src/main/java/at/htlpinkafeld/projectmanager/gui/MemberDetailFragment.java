@@ -76,4 +76,5 @@ public class MemberDetailFragment extends AbstrDetailFragment {
         teamMember.setLname(((EditText)view.findViewById(R.id.m_lname_text)).getText().toString());
         teamMember.setDept(((EditText) view.findViewById(R.id.m_dep_text)).getText().toString());
     }
+
 }

@@ -132,5 +132,15 @@
                 android:text="@string/button_delete"
                 android:onClick="delMem"/>
         </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/m_load_sample_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/loadSampleData"
+            android:onClick="loadSampleMembers"/>
+    </LinearLayout>
 
 </LinearLayout>

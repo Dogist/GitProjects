@@ -28,7 +28,7 @@ public class RSClient {
 
     public RSClient(int port) {
         client = ClientBuilder.newClient();
-        webTarget = client.target("http://localhost:" + port + "/rs_customermanagement_json/webapi");
+        webTarget = client.target("http://localhost:" + port + "/rs_customermanagement_json/webapi/customerservice");
     }
 
     public RSClient() {

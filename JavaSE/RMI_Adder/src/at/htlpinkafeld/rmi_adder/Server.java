@@ -21,11 +21,11 @@ public class Server {
         LocateRegistry.createRegistry(Registry.REGISTRY_PORT);
 
         AdderImpl adder = new AdderImpl();
-        Adder stub = (Adder) UnicastRemoteObject.exportObject(adder, 0);
+        //Adder stub = (Adder) UnicastRemoteObject.exportObject(adder, 0);
         RemoteServer.setLog(System.out);
 
         Registry registry = LocateRegistry.getRegistry();
-        registry.rebind("Adder", stub);
+        registry.rebind("Adder", adder);
 
         System.out.println("Adder angemeldet");
     }

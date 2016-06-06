@@ -5,21 +5,19 @@
  */
 package at.htlpinkafeld.rs_personresource.resources;
 
-import at.htlpinkafeld.connectionmanager.ConnectionManagerImpl;
-import at.htlpinkafeld.connectionmanager.DAOHelper;
-import at.htlpinkafeld.rs_personresource.dao.JdbcBaseDao;
 import at.htlpinkafeld.rs_personresource.model.Person;
 import at.htlpinkafeld.rs_personresource.service.DAOSysException;
 import at.htlpinkafeld.rs_personresource.service.PersonService;
 import at.htlpinkafeld.rs_personresource.service.PersonServiceImpl;
-import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -36,7 +34,7 @@ public class PersonResource {
 
     public PersonResource() {
         //this.p = new Person(1, "Max", "Mustermann", "max_mustermann@htlpinkafeld.at");
-        
+
         ps = new PersonServiceImpl();
 
     }
@@ -86,5 +84,38 @@ public class PersonResource {
             Logger.getLogger(PersonResource.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
+    }
+
+    @PUT
+    @Path("persons/{id}")
+    @Produces(MediaType.APPLICATION_XML)
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public Person updatePerson(@PathParam("id") int id, @FormParam("firstName") String firstName,
+            @FormParam("lastName") String lastName,
+            @FormParam("email") String email) {
+
+        try {
+
+            Person p = ps.findPersonById(id);
+            p.setEmail(email);
+            p.setFirstName(firstName);
+            p.setLastName(lastName);
+            ps.updatePerson(p);
+            return p;
+        } catch (DAOSysException ex) {
+            Logger.getLogger(PersonResource.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+    @DELETE
+    @Path("persons/{id}")
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public void deletePerson(@PathParam("id") int id) {
+        try {
+            ps.deletePerson(new Person(id, "", "", ""));
+        } catch (DAOSysException ex) {
+            Logger.getLogger(PersonResource.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

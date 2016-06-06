@@ -11,7 +11,7 @@ public class ProjectTable {
     private static final Logger log = Logger.getLogger(ProjectTable.class.getName());
 
     public static final String TABLE_NAME = "Project";
-    public static final String COLUMN_PID ="PROJECT_ID";
+    public static final String COLUMN_PID ="_ID";
     public static final String COLUMN_PNAME = "PRNAME";
     public static final String COLUMN_PCONTR = "PRCONTRACTOR";
     public static final String COLUMN_PRPROCMOD = "PRPROCMOD";

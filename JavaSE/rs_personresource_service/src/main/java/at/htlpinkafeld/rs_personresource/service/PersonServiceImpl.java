@@ -30,7 +30,7 @@ public class PersonServiceImpl implements PersonService {
             DAOHelper.setTableClasses(new Class<?>[]{Person.class});
             // Create Database and Tables (determine database type and name)
             DAOHelper.createDatabaseAndTables(DAOHelper.DATABASE.HSQLDB, "crm");
-
+            
             personDao = new PersonJdbcDao();
         } catch (SQLException ex) {
             Logger.getLogger(PersonServiceImpl.class.getName()).log(Level.SEVERE, null, ex);

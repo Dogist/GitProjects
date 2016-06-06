@@ -13,7 +13,7 @@ public class ActivityTable {
     private static final Logger log = Logger.getLogger(ActivityTable.class.getName());
 
     public static final String TABLE_NAME = "Activity";
-    public static final String COLUMN_AID ="Activity_ID";
+    public static final String COLUMN_AID ="_ID";
     public static final String COLUMN_PID = "Project_ID";
     public static final String COLUMN_ANAME = "ActName";
     public static final String COLUMN_APRIORITY = "ActPriority";

@@ -21,7 +21,7 @@ public class TeamMemberSQL_DAO extends BaseSQL_DAO<TeamMember> implements TeamMe
     @Override
     protected ContentValues entityToContentValues(TeamMember t) {
         ContentValues cv = new ContentValues();
-        if(t.getId()!=null)
+        if(t.getId()!=null&&t.getId()!=-1)
             cv.put(TeamMemberTable.COLUMN_TMID, t.getId());
         cv.put(TeamMemberTable.COLUMN_TMTitle, t.getTitle());
         cv.put(TeamMemberTable.COLUMN_TMJob, t.getJob());

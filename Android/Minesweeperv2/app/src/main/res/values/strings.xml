@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Minesweeperv2</string>
+
+    <string name="difficulty_name">Difficulty:</string>
+    <string name="mine_num">Number of Mines:</string>
+    <string name="width">Width:</string>
+    <string name="height">Height:</string>
+    <string name="start">Start Game</string>
+    <string name="title_activity_mine">Minesweeperv2</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="action_savegame">Save game</string>
+    <string name="action_retry">Restart game</string>
+    <string name="loadGame">Load Game</string>
+    <string name="title_activity_select__savegame">Select Savegame</string>
+    <string name="load">Load</string>
+    <string name="delete">delete</string>
+    <string name="title_activity_high_score">HighScores</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="highscores">Highscores</string>
+    <string name="retur">Return</string>
+    <string name="view_highscore">view highscore</string>
+    <string name="savegame_text_header">ID\tTime\tMines\tUncovered</string>
+    <string name="savegame_header_id">ID</string>
+    <string name="savegame_header_time">Time</string>
+    <string name="savegame_header_mines">Mines</string>
+    <string name="savegame_header_uncovered">Uncovered</string>
+</resources>

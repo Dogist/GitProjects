@@ -14,5 +14,5 @@ import java.rmi.RemoteException;
  */
 public interface Adder extends Remote {
 
-    int add(int x, int y) throws RemoteException;
+    public int add(int x, int y) throws RemoteException;
 }

@@ -59,4 +59,5 @@
     <string name="duration">Duration</string>
     <string name="cancel">Cancel</string>
     <string name="duration_calculator">Duration Calculator</string>
+    <string name="loadSampleData">Load Sample Data</string>
 </resources>

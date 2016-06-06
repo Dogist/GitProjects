@@ -15,6 +15,7 @@ import at.htlpinkafeld.projectmanager.cp.PMContract.Activities;
 import at.htlpinkafeld.projectmanager.cp.PMContract.Projects;
 import at.htlpinkafeld.projectmanager.cp.PMContract.TeamMembers;
 import at.htlpinkafeld.projectmanager.dao.PMDBHelper;
+import at.htlpinkafeld.projectmanager.pojo.TeamMember;
 
 
 /**
@@ -48,7 +49,7 @@ public class PMProvider extends ContentProvider {
 
     @Override
     public boolean onCreate() {
-        //pmDatabaseHelper = new PMDBHelper(getContext());
+        pmDatabaseHelper = new PMDBHelper(getContext());
         return true;
     }
 
@@ -91,7 +92,7 @@ public class PMProvider extends ContentProvider {
             case TEAMMEMBER_ID:
                 builder.setTables(TeamMembers.TABLE_NAME);
                 // limit query to one row at most:
-                builder.appendWhere(Projects._ID + " = " + uri.getLastPathSegment());
+                builder.appendWhere(TeamMembers._ID + " = " + uri.getLastPathSegment());
                 break;
             default:
                 throw new IllegalArgumentException("Unsupported URI: " + uri);
@@ -195,7 +196,7 @@ public class PMProvider extends ContentProvider {
                 break;
             case PROJECT_ID:
                 idStr = uri.getLastPathSegment();
-                where = Activities._ID + " = " + idStr;
+                where = Projects._ID + " = " + idStr;
                 if (!TextUtils.isEmpty(selection)) {
                     where += " AND " + selection;
                 }
@@ -212,7 +213,7 @@ public class PMProvider extends ContentProvider {
                 break;
             case TEAMMEMBER_ID:
                 idStr = uri.getLastPathSegment();
-                where = Activities._ID + " = " + idStr;
+                where = TeamMembers._ID + " = " + idStr;
                 if (!TextUtils.isEmpty(selection)) {
                     where += " AND " + selection;
                 }

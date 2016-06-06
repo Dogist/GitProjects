@@ -5,11 +5,17 @@
  */
 package at.htlpinkafeld.rmi_adder;
 
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
+
 /**
  *
  * @author Martin Six
  */
-public class AdderImpl implements Adder {
+public class AdderImpl extends UnicastRemoteObject implements Adder  {
+
+    public AdderImpl() throws RemoteException{
+    }
 
     @Override
     public int add(int x, int y) {
