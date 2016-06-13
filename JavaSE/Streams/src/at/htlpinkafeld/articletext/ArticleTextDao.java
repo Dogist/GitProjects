@@ -29,8 +29,10 @@ public class ArticleTextDao {
 
     public ArticleTextDao() {
         try {
-            this.acsvw = new ArticleCSVWriter(new CryptoWriter(new FileWriter("Articles.csv")));
-            this.acsvr = new ArticleCSVReader(new CryptoReader(new FileReader("Articles.csv")));
+//            this.acsvw = new ArticleCSVWriter(new CryptoWriter(new FileWriter("Articles.csv")));
+//            this.acsvr = new ArticleCSVReader(new CryptoReader(new FileReader("Articles.csv")));
+            this.acsvw = new ArticleCSVWriter(new FileWriter("Articles.csv"));
+            this.acsvr = new ArticleCSVReader(new FileReader("Articles.csv"));
         } catch (IOException ex) {
             Logger.getLogger(ArticleTextDao.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -25,19 +25,23 @@ public class MainActivity extends AppCompatActivity {
     private Button startButton;
     private Spinner diffSpinn;
 
+    public static Context getContext() {
+        return context;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        context=this;
+        context = this;
 
-        mineNumberEText= (EditText) findViewById(R.id.mine_number_etext);
-        heightEText=(EditText) findViewById(R.id.height_etext);
-        widthEText=(EditText) findViewById(R.id.width_etext);
-        startButton=(Button) findViewById(R.id.start_button);
-        diffSpinn= (Spinner) findViewById(R.id.difficulty_spinn);
+        mineNumberEText = (EditText) findViewById(R.id.mine_number_etext);
+        heightEText = (EditText) findViewById(R.id.height_etext);
+        widthEText = (EditText) findViewById(R.id.width_etext);
+        startButton = (Button) findViewById(R.id.start_button);
+        diffSpinn = (Spinner) findViewById(R.id.difficulty_spinn);
 
-        DifficultyAdapter diffAdap=new DifficultyAdapter(this);
+        DifficultyAdapter diffAdap = new DifficultyAdapter(this);
         diffSpinn.setAdapter(diffAdap);
 
         //Listener for settings spinner, for setting the textviews
@@ -77,26 +81,22 @@ public class MainActivity extends AppCompatActivity {
                 FieldServiceClass.setNumMines(Integer.parseInt(mineNumberEText.getText().toString()));
                 FieldServiceClass.setHeight(Integer.parseInt(heightEText.getText().toString()));
                 FieldServiceClass.setWidth(Integer.parseInt(widthEText.getText().toString()));
-                if(FieldServiceClass.getNumMines()>0&&FieldServiceClass.getNumMines()<FieldServiceClass.getWidth()*FieldServiceClass.getHeight()){
+                if (FieldServiceClass.getNumMines() > 0 && FieldServiceClass.getNumMines() < FieldServiceClass.getWidth() * FieldServiceClass.getHeight()) {
 
-                    Intent intent=new Intent(v.getContext(),MineActivity.class);
+                    Intent intent = new Intent(v.getContext(), MineActivity.class);
                     startActivity(intent);
                 }
             }
         });
     }
 
-    public static Context getContext() {
-        return context;
-    }
-
-    public void loadGame(View v){
-        Intent intent=new Intent(v.getContext(),Select_SavegameActivity.class);
+    public void loadGame(View v) {
+        Intent intent = new Intent(v.getContext(), Select_SavegameActivity.class);
         startActivity(intent);
     }
 
-    public void viewHighScore(View v){
-        Intent intent=new Intent(v.getContext(), HighScoreActivity.class);
+    public void viewHighScore(View v) {
+        Intent intent = new Intent(v.getContext(), HighScoreActivity.class);
         startActivity(intent);
     }
 

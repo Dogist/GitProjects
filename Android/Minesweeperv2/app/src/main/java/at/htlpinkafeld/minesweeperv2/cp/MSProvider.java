@@ -23,7 +23,7 @@ public class MSProvider extends ContentProvider {
     public static final UriMatcher URI_MATCHER;
 
     static {
-        URI_MATCHER=new UriMatcher(UriMatcher.NO_MATCH);
+        URI_MATCHER = new UriMatcher(UriMatcher.NO_MATCH);
         URI_MATCHER.addURI(MSContract.AUTHORITY, "savegames", SAVEGAME_LIST);
         URI_MATCHER.addURI(MSContract.AUTHORITY, "savegames/#", SAVEGAME_ID);
         URI_MATCHER.addURI(MSContract.AUTHORITY, "scores", SCORE_LIST);
@@ -34,7 +34,7 @@ public class MSProvider extends ContentProvider {
 
     @Override
     public boolean onCreate() {
-        msDatabaseHelper=new MSDBHelper(getContext());
+        msDatabaseHelper = new MSDBHelper(getContext());
         return true;
     }
 
@@ -80,8 +80,7 @@ public class MSProvider extends ContentProvider {
         // if we want to be notified of any changes:
         if (useAuthorityUri) {
             cursor.setNotificationUri(getContext().getContentResolver(), MSContract.CONTENT_URI);
-        }
-        else {
+        } else {
             cursor.setNotificationUri(getContext().getContentResolver(), uri);
         }
         return cursor;
@@ -106,16 +105,16 @@ public class MSProvider extends ContentProvider {
 
     @Override
     public Uri insert(Uri uri, ContentValues values) {
-        if(URI_MATCHER.match(uri)!=SAVEGAME_LIST && URI_MATCHER.match(uri)!=SCORE_LIST)
+        if (URI_MATCHER.match(uri) != SAVEGAME_LIST && URI_MATCHER.match(uri) != SCORE_LIST)
             throw new IllegalArgumentException("Unsupported URI for insertion: " + uri);
         SQLiteDatabase db = msDatabaseHelper.getWritableDatabase();
 
-        if (URI_MATCHER.match(uri)==SAVEGAME_LIST){
-            long id=db.insert(MSContract.SaveGames.TABLE_NAME,null,values);
-            return getUriForId(id,uri);
+        if (URI_MATCHER.match(uri) == SAVEGAME_LIST) {
+            long id = db.insert(MSContract.SaveGames.TABLE_NAME, null, values);
+            return getUriForId(id, uri);
         } else {
-            long id=db.insert(MSContract.Scores.TABLE_NAME,null,values);
-            return getUriForId(id,uri);
+            long id = db.insert(MSContract.Scores.TABLE_NAME, null, values);
+            return getUriForId(id, uri);
         }
     }
 

@@ -15,20 +15,19 @@ import java.rmi.registry.Registry;
  * @author Martin Six
  */
 public class SayClient {
-    
-    private static int PORT;
-    
+
+    private static final int PORT = 30000;
+
     private Say say;
-    
+
     public SayClient(int port) throws RemoteException, NotBoundException {
-        PORT = port;
-        
-        Registry reg = LocateRegistry.getRegistry(PORT);
+
+        Registry reg = LocateRegistry.getRegistry(port);
         say = (Say) reg.lookup("Say");
     }
-    
+
     public SayClient() throws RemoteException, NotBoundException {
-        this(30000);
+        this(PORT);
     }
 
     /**
@@ -39,7 +38,7 @@ public class SayClient {
     public static void main(String[] args) throws RemoteException, NotBoundException {
         SayClient sc = new SayClient();
     }
-    
+
     public String say(String s) throws RemoteException {
         return say.say(s);
     }

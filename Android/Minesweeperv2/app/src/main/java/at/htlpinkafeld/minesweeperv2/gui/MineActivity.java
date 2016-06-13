@@ -15,9 +15,6 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.Toast;
 
-import java.text.SimpleDateFormat;
-import java.util.concurrent.TimeUnit;
-
 import at.htlpinkafeld.minesweeperv2.R;
 import at.htlpinkafeld.minesweeperv2.pojo.MineField;
 import at.htlpinkafeld.minesweeperv2.service.DBService;
@@ -27,24 +24,27 @@ import at.htlpinkafeld.minesweeperv2.util.MyChronometer;
 
 public class MineActivity extends AppCompatActivity {
 
-    public static final String START_TIME_EXTRA="start_time";
-
+    public static final String START_TIME_EXTRA = "start_time";
+    private static long startTime = 0;
     private MyChronometer timer;
     private DBService dbService;
     private GridView gameGrid;
+    private boolean gameRunning = true;
 
-    private static long startTime=0;
+    private AlertDialog endGameDialog;
 
-    private boolean saveable=true;
+    public static void setStartTime(long time) {
+        startTime = time;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-        if((startTime=getIntent().getLongExtra(START_TIME_EXTRA, -1))==-1) {
+        if ((startTime = getIntent().getLongExtra(START_TIME_EXTRA, -1)) == -1) {
             FieldServiceClass.forceRecreate();
-            startTime=0;
+            startTime = 0;
         }
 
         gameGrid = (GridView) findViewById(R.id.game_grid);
@@ -53,27 +53,30 @@ public class MineActivity extends AppCompatActivity {
         gameGrid.setAdapter(gba);
 
         //Listener to uncover fields, which have no flag. Also handles winning and loosing
+        //it also starts the chronometer with 0 or the defined start time from a saved game
         gameGrid.setOnItemClickListener(new GridView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 MineField f = (MineField) parent.getItemAtPosition(position);
-                if (!timer.isRunning()) {
+                if (!timer.isRunning() && gameRunning) {
                     timer.setBase(SystemClock.elapsedRealtime() - startTime);
                     timer.start();
                 }
-                if (!f.isFlagged()) {
+                if (!f.isFlagged() && gameRunning) {
                     FieldServiceClass.getFieldServiceClass().clearAround(position % FieldServiceClass.getWidth(), position / FieldServiceClass.getWidth());
                     ((BaseAdapter) parent.getAdapter()).notifyDataSetChanged();
 
                     if (f.isMine()) {
                         FieldServiceClass.getFieldServiceClass().setMinesCovered(false);
-                        AlertDialog alertDialog = createGameEndDialog("You Lost");
-                        alertDialog.show();
+                        endGameDialog = createGameEndDialog("You Lost");
+                        endGameDialog.show();
                     } else if (FieldServiceClass.getWidth() * FieldServiceClass.getHeight() - FieldServiceClass.getNumMines() == FieldServiceClass.getFieldServiceClass().getFieldsUncovered()) {
-                        AlertDialog alertDialog = createGameEndDialog("You Won");
-                        alertDialog.show();
+                        endGameDialog = createGameEndDialog("You Won");
+                        endGameDialog.show();
 
                     }
+                } else if (!gameRunning) {
+                    endGameDialog.show();
                 }
             }
         });
@@ -107,7 +110,7 @@ public class MineActivity extends AppCompatActivity {
     //creates the standard dialog at the end of the game
     private AlertDialog createGameEndDialog(String message) {
 
-        saveable=false;
+        gameRunning = false;
 
         if (timer.isRunning()) {
             this.timer.stop();
@@ -120,6 +123,7 @@ public class MineActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 restartGame();
+                gameRunning = true;
             }
         });
         dialogBuilder.setNegativeButton("different settings?", new DialogInterface.OnClickListener() {
@@ -131,7 +135,7 @@ public class MineActivity extends AppCompatActivity {
         dialogBuilder.setNeutralButton("save score", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Intent i=new Intent(getBaseContext(), HighScoreActivity.class);
+                Intent i = new Intent(getBaseContext(), HighScoreActivity.class);
                 i.putExtra(HighScoreActivity.NEW_SCORE, true);
                 i.putExtra(HighScoreActivity.TIME, SystemClock.elapsedRealtime() - timer.getBase());
                 startActivity(i);
@@ -152,11 +156,10 @@ public class MineActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_save_game:
-                if (saveable) {
+                if (gameRunning) {
                     dbService.saveGame(SystemClock.elapsedRealtime() - timer.getBase());
                     return true;
-                }
-                else {
+                } else {
                     Toast.makeText(this, "You can't save a finished game", Toast.LENGTH_LONG).show();
                     return false;
                 }
@@ -179,25 +182,21 @@ public class MineActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        startTime=-1;
+        startTime = -1;
     }
 
     private void restartTimer() {
         if (timer.isRunning())
             timer.stop();
-        startTime=0;
+        startTime = 0;
         timer.setBase(SystemClock.elapsedRealtime());
         timer.setText("00:00");
     }
 
-    private void restartGame(){
+    private void restartGame() {
         FieldServiceClass.getFieldServiceClass().reset();
         ((BaseAdapter) gameGrid.getAdapter()).notifyDataSetChanged();
         restartTimer();
         gameGrid.setEnabled(true);
-    }
-
-    public static void setStartTime(long time){
-        startTime=time;
     }
 }

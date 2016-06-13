@@ -17,17 +17,11 @@ import at.htlpinkafeld.minesweeperv2.util.DifficultyEnum;
  */
 public class DifficultyAdapter extends BaseAdapter implements ListAdapter {
 
-    private static class ViewHolder{
-        public  final TextView diffV;
-
-        private  ViewHolder(TextView diffV){this.diffV=diffV;}
-    }
-
-    private FieldServiceClass sc;
     private final Context context;
+    private FieldServiceClass sc;
 
     public DifficultyAdapter(Context context) {
-        sc=FieldServiceClass.getFieldServiceClass();
+        sc = FieldServiceClass.getFieldServiceClass();
         this.context = context;
     }
 
@@ -49,17 +43,25 @@ public class DifficultyAdapter extends BaseAdapter implements ListAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         TextView diffView;
-        if(convertView==null){
-            convertView= LayoutInflater.from(context).inflate(R.layout.difficulty_entry,parent, false);
-            diffView=(TextView)convertView.findViewById(R.id.difficulty_entryitem);
+        if (convertView == null) {
+            convertView = LayoutInflater.from(context).inflate(R.layout.difficulty_entry, parent, false);
+            diffView = (TextView) convertView.findViewById(R.id.difficulty_entryitem);
             convertView.setTag(new ViewHolder(diffView));
         }
-        ViewHolder viewHolder=(ViewHolder)convertView.getTag();
+        ViewHolder viewHolder = (ViewHolder) convertView.getTag();
 
-        DifficultyEnum opt= (DifficultyEnum) getItem(position);
-        diffView=viewHolder.diffV;
+        DifficultyEnum opt = (DifficultyEnum) getItem(position);
+        diffView = viewHolder.diffV;
         diffView.setText(opt.name());
 
         return convertView;
+    }
+
+    private static class ViewHolder {
+        public final TextView diffV;
+
+        private ViewHolder(TextView diffV) {
+            this.diffV = diffV;
+        }
     }
 }

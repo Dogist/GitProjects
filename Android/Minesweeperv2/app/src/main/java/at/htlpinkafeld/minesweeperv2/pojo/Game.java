@@ -16,7 +16,7 @@ public class Game {
         this.board = board;
         this.numMines = numMines;
         this.fieldsUncovered = fieldsUncovered;
-        this.time=time;
+        this.time = time;
     }
 
     public int getGame_id() {

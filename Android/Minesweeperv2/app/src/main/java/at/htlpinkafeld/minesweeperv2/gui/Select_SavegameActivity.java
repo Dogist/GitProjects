@@ -25,28 +25,28 @@ public class Select_SavegameActivity extends AppCompatActivity {
     private DBService dbService;
     private ListView saveGList;
     private Cursor cursor;
-    private int selectPosition=-1;
+    private int selectPosition = -1;
     private CursorAdapter sca;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select__savegame);
-        dbService=new DBService(getContentResolver());
-        saveGList=(ListView) findViewById(R.id.savegame_list);
+        dbService = new DBService(getContentResolver());
+        saveGList = (ListView) findViewById(R.id.savegame_list);
 
-        View header=getLayoutInflater().inflate(R.layout.savegamelist_header, null);
+        View header = getLayoutInflater().inflate(R.layout.savegamelist_header, null);
         saveGList.addHeaderView(header);
 
-        cursor=dbService.getSaveGames();
+        cursor = dbService.getSaveGames();
 
         saveGList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                selectPosition=position-saveGList.getHeaderViewsCount();
+                selectPosition = position - saveGList.getHeaderViewsCount();
             }
         });
-        sca= new SaveGameCursorAdapter(this,cursor,CursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER);
+        sca = new SaveGameCursorAdapter(this, cursor, CursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER);
         saveGList.setAdapter(sca);
     }
 
@@ -62,14 +62,14 @@ public class Select_SavegameActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void deleteSelectedGame(View v){
-        dbService.deleteSaveGame(saveGList.getItemIdAtPosition(selectPosition+saveGList.getHeaderViewsCount()));
+    public void deleteSelectedGame(View v) {
+        dbService.deleteSaveGame(saveGList.getItemIdAtPosition(selectPosition + saveGList.getHeaderViewsCount()));
         sca.swapCursor(dbService.getSaveGames());
     }
 
-    public void loadSelectedGame(View v){
-        Gson gson=new Gson();
-        if(selectPosition>=0) {
+    public void loadSelectedGame(View v) {
+        Gson gson = new Gson();
+        if (selectPosition >= 0) {
             cursor.moveToPosition(selectPosition);
             if (!cursor.isBeforeFirst()) {
                 Game g = new Game(cursor.getInt(cursor.getColumnIndexOrThrow(SaveGameTable.COLUMN_SGID)), gson.fromJson(cursor.getString(cursor.getColumnIndexOrThrow(SaveGameTable.COLUMN_BOARD)), MineField[][].class),

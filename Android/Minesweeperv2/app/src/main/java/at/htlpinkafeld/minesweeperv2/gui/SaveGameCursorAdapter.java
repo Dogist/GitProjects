@@ -18,22 +18,22 @@ import at.htlpinkafeld.minesweeperv2.util.MyChronometer;
 public class SaveGameCursorAdapter extends CursorAdapter {
 
     public SaveGameCursorAdapter(Context context, Cursor cursor, int flags) {
-        super(context, cursor, 0);
+        super(context, cursor, flags);
     }
 
     @Override
     public View newView(Context context, Cursor cursor, ViewGroup parent) {
-        return LayoutInflater.from(context).inflate(R.layout.savegamelist_item,parent,false);
+        return LayoutInflater.from(context).inflate(R.layout.savegamelist_item, parent, false);
     }
 
     @Override
     public void bindView(View view, Context context, Cursor cursor) {
-        TextView idV= (TextView) view.findViewById(R.id.savegame_item_id);
-        TextView timeV= (TextView) view.findViewById(R.id.savegame_item_time);
-        TextView minesV= (TextView) view.findViewById(R.id.savegame_item_mines);
-        TextView uncoveredV= (TextView) view.findViewById(R.id.savegame_item_uncovered);
+        TextView idV = (TextView) view.findViewById(R.id.savegame_item_id);
+        TextView timeV = (TextView) view.findViewById(R.id.savegame_item_time);
+        TextView minesV = (TextView) view.findViewById(R.id.savegame_item_mines);
+        TextView uncoveredV = (TextView) view.findViewById(R.id.savegame_item_uncovered);
 
-        idV.setText(String.valueOf(cursor.getInt(cursor.getColumnIndexOrThrow(SaveGameTable.COLUMN_SGID))));
+        idV.setText(cursor.getString(cursor.getColumnIndexOrThrow(SaveGameTable.COLUMN_SGID)));
         timeV.setText(MyChronometer.millToChronometerLayout(cursor.getLong(cursor.getColumnIndexOrThrow(SaveGameTable.COLUMN_TIME))));
         minesV.setText(cursor.getString(cursor.getColumnIndexOrThrow(SaveGameTable.COLUMN_NUMMINES)));
         uncoveredV.setText(cursor.getString(cursor.getColumnIndexOrThrow(SaveGameTable.COLUMN_FIELDSUNCOVERED)));

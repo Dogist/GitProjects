@@ -27,7 +27,7 @@ public class MSContract {
      * permission to set in the attribute android:writePermission
      * of the provider tag
      */
-    public static final String PERMISSION_WRITE =AUTHORITY + ".WRITE";
+    public static final String PERMISSION_WRITE = AUTHORITY + ".WRITE";
 
     public static final class SaveGames implements BaseColumns {
         public static final String TABLE_NAME = "savegames";
@@ -40,11 +40,11 @@ public class MSContract {
 
         public static final Uri CONTENT_URI = Uri.withAppendedPath(MSContract.CONTENT_URI, TABLE_NAME);
 
-        public static final String CONTENT_TYPE = ContentResolver.CURSOR_DIR_BASE_TYPE+"/vnd.at.htlpinkafeld.minesweeperv2_savegames";
+        public static final String CONTENT_TYPE = ContentResolver.CURSOR_DIR_BASE_TYPE + "/vnd.at.htlpinkafeld.minesweeperv2_savegames";
 
-        public static final String CONTENT_SAVEGAME_TYPE = ContentResolver.CURSOR_ITEM_BASE_TYPE+ "/vnd.at.htlpinkafeld.minesweeperv2_savegames";
+        public static final String CONTENT_SAVEGAME_TYPE = ContentResolver.CURSOR_ITEM_BASE_TYPE + "/vnd.at.htlpinkafeld.minesweeperv2_savegames";
 
-        public static final String[] PROJECTION_ALL = {_ID,BOARD, NUMMINES, FIELDSUNCOVERED,TIME};
+        public static final String[] PROJECTION_ALL = {_ID, BOARD, NUMMINES, FIELDSUNCOVERED, TIME};
 
         public static final String SORT_ORDER_DEFAULT = _ID + " ASC";
     }
@@ -61,11 +61,11 @@ public class MSContract {
 
         public static final Uri CONTENT_URI = Uri.withAppendedPath(MSContract.CONTENT_URI, TABLE_NAME);
 
-        public static final String CONTENT_TYPE = ContentResolver.CURSOR_DIR_BASE_TYPE+"/vnd.at.htlpinkafeld.minesweeperv2_scores";
+        public static final String CONTENT_TYPE = ContentResolver.CURSOR_DIR_BASE_TYPE + "/vnd.at.htlpinkafeld.minesweeperv2_scores";
 
-        public static final String CONTENT_SCORE_TYPE = ContentResolver.CURSOR_ITEM_BASE_TYPE+ "/vnd.at.htlpinkafeld.minesweeperv2_scores";
+        public static final String CONTENT_SCORE_TYPE = ContentResolver.CURSOR_ITEM_BASE_TYPE + "/vnd.at.htlpinkafeld.minesweeperv2_scores";
 
-        public static final String[] PROJECTION_ALL = {_ID, PNAME, TIME, HEIGHT, WIDTH,  NUMMINES, FIELDS_CLEARED};
+        public static final String[] PROJECTION_ALL = {_ID, PNAME, TIME, HEIGHT, WIDTH, NUMMINES, FIELDS_CLEARED};
 
         public static final String SORT_ORDER_DEFAULT = TIME + " DESC";
     }

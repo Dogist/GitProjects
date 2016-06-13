@@ -5,19 +5,19 @@ package at.htlpinkafeld.minesweeperv2.pojo;
  */
 public class MineField {
     private boolean flagged;
-    private boolean covered=true;
+    private boolean covered = true;
     private boolean mine;
     private int nearMines;
 
     public MineField() {
     }
 
-    protected MineField(boolean ismine ) {
-        mine=ismine;
+    protected MineField(boolean ismine) {
+        mine = ismine;
     }
 
-    public MineField(int nearMines){
-        this.nearMines=nearMines;
+    public MineField(int nearMines) {
+        this.nearMines = nearMines;
     }
 
     public int getNearMines() {
@@ -28,7 +28,7 @@ public class MineField {
         this.nearMines = nearMines;
     }
 
-    public boolean isMine(){
+    public boolean isMine() {
         return mine;
     }
 

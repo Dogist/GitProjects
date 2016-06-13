@@ -26,4 +26,8 @@
     <string name="savegame_header_time">Time</string>
     <string name="savegame_header_mines">Mines</string>
     <string name="savegame_header_uncovered">Uncovered</string>
+    <string name="score">Score</string>
+    <string name="fieldSize">Field</string>
+    <string name="mines">Mines</string>
+    <string name="name">Name</string>
 </resources>

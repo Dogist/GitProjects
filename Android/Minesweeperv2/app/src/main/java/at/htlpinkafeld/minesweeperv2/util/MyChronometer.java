@@ -32,6 +32,12 @@ public class MyChronometer extends Chronometer {
         super(context, attrs, defStyleAttr, defStyleRes);
     }
 
+    public static String millToChronometerLayout(long mill) {
+        return String.format("%02d:%02d",
+                TimeUnit.MILLISECONDS.toMinutes(mill),
+                TimeUnit.MILLISECONDS.toSeconds(mill) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(mill)));
+    }
+
     @Override
     public void start() {
         super.start();
@@ -46,11 +52,5 @@ public class MyChronometer extends Chronometer {
 
     public boolean isRunning() {
         return isRunning;
-    }
-
-    public static String millToChronometerLayout(long mill){
-        return String.format("%02d:%02d",
-                TimeUnit.MILLISECONDS.toMinutes(mill),
-                TimeUnit.MILLISECONDS.toSeconds(mill) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(mill)));
     }
 }

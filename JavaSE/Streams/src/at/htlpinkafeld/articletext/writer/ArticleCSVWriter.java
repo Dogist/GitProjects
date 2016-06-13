@@ -28,7 +28,7 @@ public class ArticleCSVWriter extends FilterWriter {
 
     public void write(Article a) {
         try {
-            bw.append(a.getId() + "," + a.getName() + "," + a.getPrice());
+            bw.append(a.getId() + ";" + a.getName() + ";" + a.getPrice());
             bw.newLine();
             bw.flush();
         } catch (IOException ex) {

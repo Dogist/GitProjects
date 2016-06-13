@@ -16,23 +16,22 @@ import java.rmi.server.UnicastRemoteObject;
  */
 public class SayServer {
 
-    private static int PORT;
+    private final static int PORT = 30000;
 
     public SayServer(int port) throws RemoteException {
-        PORT = port;
 
-        LocateRegistry.createRegistry(PORT);
+        LocateRegistry.createRegistry(port);
 
         SayImpl say = new SayImpl();
-        Say stub = (Say) UnicastRemoteObject.exportObject(say, PORT);
+        Say stub = (Say) UnicastRemoteObject.exportObject(say, port);
 
-        Registry reg = LocateRegistry.getRegistry(PORT);
+        Registry reg = LocateRegistry.getRegistry(port);
 
         reg.rebind("Say", stub);
     }
 
     public SayServer() throws RemoteException {
-        this(30000);
+        this(PORT);
     }
 
     /**

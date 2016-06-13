@@ -30,7 +30,7 @@ public class ArticleCSVReader extends FilterReader {
         try {
             String buff = br.readLine();
             if (buff != null) {
-                String[] parts = buff.split(",");
+                String[] parts = buff.split(";");
                 parts[2] = parts[2].substring(0, parts[2].length() - 1);
                 return new Article(Integer.parseInt(parts[0]), parts[1], Double.parseDouble(parts[2]));
             }
