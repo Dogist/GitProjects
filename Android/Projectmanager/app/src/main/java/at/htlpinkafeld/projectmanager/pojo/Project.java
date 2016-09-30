@@ -1,6 +1,11 @@
 package at.htlpinkafeld.projectmanager.pojo;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by User on 19.10.2015.
@@ -29,59 +34,59 @@ public class Project {
     }
 
     public Project(int projId) {
-        id=projId;
+        id = projId;
     }
 
     public Integer getId() {
         return id;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public String getContr() {
-        return contr;
-    }
-
-    public String getProcMod() {
-        return procMod;
-    }
-
-    public Date getStartD() {
-        return startD;
-    }
-
-    public Date getEndD() {
-        return endD;
-    }
-
-    public String getDesc() {
-        return desc;
-    }
-
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
+    public String getContr() {
+        return contr;
+    }
+
     public void setContr(String contr) {
         this.contr = contr;
+    }
+
+    public String getProcMod() {
+        return procMod;
     }
 
     public void setProcMod(String procMod) {
         this.procMod = procMod;
     }
 
+    public Date getStartD() {
+        return startD;
+    }
+
     public void setStartD(Date startD) {
         this.startD = startD;
     }
 
+    public Date getEndD() {
+        return endD;
+    }
+
     public void setEndD(Date endD) {
         this.endD = endD;
+    }
+
+    public String getDesc() {
+        return desc;
     }
 
     public void setDesc(String desc) {
@@ -99,6 +104,21 @@ public class Project {
                 ", endD=" + endD +
                 ", desc='" + desc + '\'' +
                 '}';
+    }
+
+    public JSONObject toJson(List<Activity> subActivities) throws JSONException {
+        JSONObject jObject = new JSONObject();
+        jObject.put("name", name);
+        jObject.put("contr", contr);
+        jObject.put("procMod", procMod);
+        jObject.put("startD", startD);
+        jObject.put("endD", endD);
+        jObject.put("desc", desc);
+        JSONArray jsonArray = new JSONArray();
+        for(Activity a:subActivities)
+            jsonArray.put(a.toJson());
+        jObject.put("activities", jsonArray);
+        return jObject;
     }
 
     @Override

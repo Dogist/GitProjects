@@ -23,8 +23,8 @@ public abstract class AbstrDetailFragment extends Fragment {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        int id=item.getItemId();
-        switch (id){
+        int id = item.getItemId();
+        switch (id) {
             case R.id.newM:
                 newLis.onClick(this.getView());
                 break;

@@ -22,7 +22,7 @@ public class ProjectSQL_DAO extends BaseSQL_DAO<Project> implements ProjectDAO {
     @Override
     protected ContentValues entityToContentValues(Project p) {
         ContentValues cv = new ContentValues();
-        if(p.getId()!=null)
+        if (p.getId() != null && p.getId() != -1)
             cv.put(ProjectTable.COLUMN_PID, p.getId());
         cv.put(ProjectTable.COLUMN_PNAME, p.getName());
         cv.put(ProjectTable.COLUMN_PCONTR, p.getContr());

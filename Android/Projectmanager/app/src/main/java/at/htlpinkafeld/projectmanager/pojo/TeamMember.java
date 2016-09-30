@@ -3,8 +3,6 @@ package at.htlpinkafeld.projectmanager.pojo;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.List;
-
 /**
  * Created by User on 12.10.2015.
  */
@@ -19,13 +17,13 @@ public class TeamMember {
     public TeamMember() {
     }
 
-    public TeamMember(JSONObject jsonObject){
-        id=-1;
-        title=jsonObject.optString("title");
-        job=jsonObject.optString("jobtitle");
-        fname=jsonObject.optString("firstname");
-        lname=jsonObject.optString("lastname");
-        dept=jsonObject.optString("department");
+    public TeamMember(JSONObject jsonObject) {
+        id = -1;
+        title = jsonObject.optString("title");
+        job = jsonObject.optString("jobtitle");
+        fname = jsonObject.optString("firstname");
+        lname = jsonObject.optString("lastname");
+        dept = jsonObject.optString("department");
 
     }
 
@@ -39,51 +37,51 @@ public class TeamMember {
     }
 
     public TeamMember(int memId) {
-        id=memId;
+        id = memId;
     }
 
     public Integer getId() {
         return id;
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public String getJob() {
-        return job;
-    }
-
-    public String getFname() {
-        return fname;
-    }
-
-    public String getLname() {
-        return lname;
-    }
-
-    public String getDept() {
-        return dept;
-    }
-
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
     }
 
     public void setTitle(String title) {
         this.title = title;
     }
 
+    public String getJob() {
+        return job;
+    }
+
     public void setJob(String job) {
         this.job = job;
+    }
+
+    public String getFname() {
+        return fname;
     }
 
     public void setFname(String fname) {
         this.fname = fname;
     }
 
+    public String getLname() {
+        return lname;
+    }
+
     public void setLname(String lname) {
         this.lname = lname;
+    }
+
+    public String getDept() {
+        return dept;
     }
 
     public void setDept(String dept) {
@@ -96,10 +94,20 @@ public class TeamMember {
                 "id=" + id +
                 ", title=" + title +
                 ", job=" + job +
-                ", fname=" + fname  +
-                ", lname=" + lname  +
-                ", dept=" + dept  +
+                ", fname=" + fname +
+                ", lname=" + lname +
+                ", dept=" + dept +
                 '}';
+    }
+
+    public JSONObject toJson() throws JSONException {
+        JSONObject jObject = new JSONObject();
+        jObject.put("title", title);
+        jObject.put("job", job);
+        jObject.put("fname", fname);
+        jObject.put("lname", lname);
+        jObject.put("dept", dept);
+        return jObject;
     }
 
     @Override

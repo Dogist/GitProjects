@@ -13,7 +13,7 @@ import at.htlpinkafeld.projectmanager.dao.teamMemberDAO.TeamMemberTable;
  * Created by User on 29.02.2016.
  */
 public class PMDBHelper extends SQLiteOpenHelper {
-    public static final int DATABASE_VERSION = 1;
+    public static final int DATABASE_VERSION = 2;
     public static final String DATABASE_NAME = "projectM.db";
 
 

@@ -11,25 +11,24 @@ import at.htlpinkafeld.projectmanager.dao.projectDAO.ProjectDAO;
 import at.htlpinkafeld.projectmanager.dao.projectDAO.ProjectSQL_DAO;
 import at.htlpinkafeld.projectmanager.pojo.Activity;
 import at.htlpinkafeld.projectmanager.pojo.Project;
-import at.htlpinkafeld.projectmanager.service.ServiceClass;
 
 
 /**
  * Created by User on 07.03.2016.
  */
-public class ActivitySQL_DAO extends BaseSQL_DAO<Activity> implements ActivityDAO{
+public class ActivitySQL_DAO extends BaseSQL_DAO<Activity> implements ActivityDAO {
 
     ProjectDAO projectDAO;
 
     public ActivitySQL_DAO(PMDBHelper pmDBHelper) {
         super(pmDBHelper, ActivityTable.TABLE_NAME, ActivityTable.ALL_COLUMNS, ActivityTable.COLUMN_AID);
-        projectDAO=new ProjectSQL_DAO(pmDBHelper);
+        projectDAO = new ProjectSQL_DAO(pmDBHelper);
     }
 
     @Override
     protected ContentValues entityToContentValues(Activity a) {
         ContentValues cv = new ContentValues();
-        if(a.getId()!=null)
+        if (a.getId() != null && a.getId() != -1)
             cv.put(ActivityTable.COLUMN_AID, a.getId());
         cv.put(ActivityTable.COLUMN_PID, a.getProj().getId());
         cv.put(ActivityTable.COLUMN_ANAME, a.getName());
@@ -43,7 +42,7 @@ public class ActivitySQL_DAO extends BaseSQL_DAO<Activity> implements ActivityDA
     @Override
     protected void cursorToEntity(Cursor cursor, Activity a) {
         a.setId(cursor.getInt(0));
-        for(Project p:projectDAO.getEntityList()) {
+        for (Project p : projectDAO.getEntityList()) {
             if (p.getId() == cursor.getInt(1))
                 a.setProj(p);
         }

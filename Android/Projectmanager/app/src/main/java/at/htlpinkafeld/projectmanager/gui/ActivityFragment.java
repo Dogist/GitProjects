@@ -54,23 +54,23 @@ public class ActivityFragment extends AbstrDetailFragment {
         newLis = new View.OnClickListener() {
             public void onClick(View v) {
                 DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-                Project p =(Project)((Spinner) view.findViewById(R.id.a_proj_spinner)).getSelectedItem();
-                int id=Integer.parseInt(((EditText)view.findViewById(R.id.a_id_text)).getText().toString());
-                String name=((EditText)view.findViewById(R.id.a_name_text)).getText().toString();
-                String prior=((EditText)view.findViewById(R.id.a_prior_text)).getText().toString();
+                Project p = (Project) ((Spinner) view.findViewById(R.id.a_proj_spinner)).getSelectedItem();
+                int id = Integer.parseInt(((EditText) view.findViewById(R.id.a_id_text)).getText().toString());
+                String name = ((EditText) view.findViewById(R.id.a_name_text)).getText().toString();
+                String prior = ((EditText) view.findViewById(R.id.a_prior_text)).getText().toString();
                 Date startD = null;
                 try {
-                    startD = dateFormat.parse(((EditText)view.findViewById(R.id.a_start_date_text)).getText().toString());
+                    startD = dateFormat.parse(((EditText) view.findViewById(R.id.a_start_date_text)).getText().toString());
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
-                Date endD= null;
+                Date endD = null;
                 try {
-                    endD = dateFormat.parse(((EditText)view.findViewById(R.id.a_end_date_text)).getText().toString());
+                    endD = dateFormat.parse(((EditText) view.findViewById(R.id.a_end_date_text)).getText().toString());
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
-                Double effort=Double.parseDouble(((EditText) view.findViewById(R.id.a_effort_text)).getText().toString());
+                Double effort = Double.parseDouble(((EditText) view.findViewById(R.id.a_effort_text)).getText().toString());
 
                 sc.addActivity(new Activity(p, id, name, prior, startD, endD, effort));
                 sc.printAllA();
@@ -80,24 +80,24 @@ public class ActivityFragment extends AbstrDetailFragment {
         saveLis = new View.OnClickListener() {
             public void onClick(View v) {
                 DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-                Project p =(Project)((Spinner) view.findViewById(R.id.a_proj_spinner)).getSelectedItem();
-                int id=Integer.parseInt(((EditText)view.findViewById(R.id.a_id_text)).getText().toString());
-                String name=((EditText)view.findViewById(R.id.a_name_text)).getText().toString();
-                String prior=((EditText)view.findViewById(R.id.a_prior_text)).getText().toString();
+                Project p = (Project) ((Spinner) view.findViewById(R.id.a_proj_spinner)).getSelectedItem();
+                int id = Integer.parseInt(((EditText) view.findViewById(R.id.a_id_text)).getText().toString());
+                String name = ((EditText) view.findViewById(R.id.a_name_text)).getText().toString();
+                String prior = ((EditText) view.findViewById(R.id.a_prior_text)).getText().toString();
                 Date startD = null;
                 try {
-                    startD = dateFormat.parse(((EditText)view.findViewById(R.id.a_start_date_text)).getText().toString());
+                    startD = dateFormat.parse(((EditText) view.findViewById(R.id.a_start_date_text)).getText().toString());
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
-                Date endD= null;
+                Date endD = null;
                 try {
-                    endD = dateFormat.parse(((EditText)view.findViewById(R.id.a_end_date_text)).getText().toString());
+                    endD = dateFormat.parse(((EditText) view.findViewById(R.id.a_end_date_text)).getText().toString());
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
-                Double effort=Double.parseDouble(((EditText) view.findViewById(R.id.a_effort_text)).getText().toString());
-                if(sc.sizeA()>0)
+                Double effort = Double.parseDouble(((EditText) view.findViewById(R.id.a_effort_text)).getText().toString());
+                if (sc.sizeA() > 0)
                     sc.updateActivity(new Activity(p, id, name, prior, startD, endD, effort));
                 sc.printAllA();
                 log.info("onClick()");
@@ -105,8 +105,8 @@ public class ActivityFragment extends AbstrDetailFragment {
         };
         delLis = new View.OnClickListener() {
             public void onClick(View v) {
-                int id=Integer.parseInt(((EditText) view.findViewById(R.id.a_id_text)).getText().toString());
-                if(sc.sizeA()>0)
+                int id = Integer.parseInt(((EditText) view.findViewById(R.id.a_id_text)).getText().toString());
+                if (sc.sizeA() > 0)
                     sc.removeActivityByID(id);
                 sc.printAllA();
                 log.info("onClick()");
@@ -118,7 +118,7 @@ public class ActivityFragment extends AbstrDetailFragment {
         view.findViewById(R.id.a_deleteB).setOnClickListener(delLis);
 
 
-        ((EditText)view.findViewById(R.id.a_prior_text)).setText(PreferenceManager.getDefaultSharedPreferences(getContext()).getString(SettingsActivity.ACTIVITY_PRIORITY, ""));
+        ((EditText) view.findViewById(R.id.a_prior_text)).setText(PreferenceManager.getDefaultSharedPreferences(getContext()).getString(SettingsActivity.ACTIVITY_PRIORITY, ""));
         log.info("onCreate()");
         return view;
     }

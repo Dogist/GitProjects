@@ -13,6 +13,8 @@
         app:showAsAction="never"/>
     <item android:id="@+id/showActM" android:title="@string/menu_showActivities"
         app:showAsAction="never"/>
-    <item android:id="@+id/showProjectM" android:title="Show Projects"
+    <item android:id="@+id/showProjectM" android:title="@string/showProj"
+        app:showAsAction="never"/>
+    <item android:id="@+id/writeBackupM" android:title="@string/backup"
         app:showAsAction="never"/>
 </menu>

@@ -8,8 +8,11 @@ import java.util.List;
 public interface BaseDAO<T> {
 
     public void insert(T entity);
+
     public List<T> getEntityList();
+
     public void save(T entity);
+
     public void delete(Long id);
 
 }

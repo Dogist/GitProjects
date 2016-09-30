@@ -27,8 +27,8 @@ public class ProjectListFragment extends ListFragment {
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
-        ProjectFragment frag= (ProjectFragment) this.getParentFragment();
-        frag.onListItemClick(l,position);
+        ProjectFragment frag = (ProjectFragment) this.getParentFragment();
+        frag.onListItemClick(l, position);
     }
 
 }

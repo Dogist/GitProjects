@@ -35,6 +35,8 @@ public class PMSQL_DAOFactory extends PM_DAOFactory {
         return new TeamMemberSQL_DAO(pmDatabaseHelper);
     }
 
-    public CalendarDAO getCalendarDAO(){return new CalendarContentProviderDAO();}
+    public CalendarDAO getCalendarDAO() {
+        return new CalendarContentProviderDAO();
+    }
 
 }

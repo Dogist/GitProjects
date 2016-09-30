@@ -9,5 +9,6 @@ import at.htlpinkafeld.projectmanager.pojo.MyCalendar;
  */
 public interface CalendarDAO {
     public abstract MyCalendar getFirstCalendar(String accountName, String accountType, String ownerAccount);
+
     public abstract void insertEvent(CalendarEvent calendarEvent);
 }

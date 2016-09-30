@@ -16,23 +16,10 @@ import at.htlpinkafeld.projectmanager.R;
  */
 
 
-
-
 public class ProjectSpinnerAdapter extends BaseAdapter {
 
-    private static class ViewHolder{
-        public final TextView nameV;
-        public final ImageView imageV;
-
-        private ViewHolder(TextView nameV, ImageView imageV) {
-            this.nameV = nameV;
-            this.imageV=imageV;
-        }
-    }
-
-    private at.htlpinkafeld.projectmanager.service.ServiceClass sc;
     private final Context context;
-
+    private at.htlpinkafeld.projectmanager.service.ServiceClass sc;
     public ProjectSpinnerAdapter(Context context) {
         this.sc = at.htlpinkafeld.projectmanager.service.ServiceClass.getServiceClass();
         this.context = context;
@@ -50,7 +37,7 @@ public class ProjectSpinnerAdapter extends BaseAdapter {
 
     @Override
     public long getItemId(int position) {
-        return  position;
+        return position;
     }
 
     @Override
@@ -66,12 +53,22 @@ public class ProjectSpinnerAdapter extends BaseAdapter {
         }
         ViewHolder viewHolder = (ViewHolder) convertView.getTag();
 
-        at.htlpinkafeld.projectmanager.pojo.Project p=getItem((int) getItemId(position));
+        at.htlpinkafeld.projectmanager.pojo.Project p = getItem((int) getItemId(position));
         nameView = viewHolder.nameV;
         nameView.setText(p.getName());
 
         imageView = viewHolder.imageV;
         imageView.setImageResource(R.mipmap.ic_launcher);
         return convertView;
+    }
+
+    private static class ViewHolder {
+        public final TextView nameV;
+        public final ImageView imageV;
+
+        private ViewHolder(TextView nameV, ImageView imageV) {
+            this.nameV = nameV;
+            this.imageV = imageV;
+        }
     }
 }

@@ -15,42 +15,33 @@ import at.htlpinkafeld.projectmanager.pojo.Project;
 /**
  * Created by User on 01.02.2016.
  */
-public class ProjectListAdapter extends BaseAdapter implements ListAdapter  {
+public class ProjectListAdapter extends BaseAdapter implements ListAdapter {
 
 
-        private static class ViewHolder{
-            public final TextView projV;
+    private final Context context;
+    private ServiceClass sc;
+    public ProjectListAdapter(Context context) {
+        this.sc = ServiceClass.getServiceClass();
+        this.context = context;
+    }
 
-            private ViewHolder(TextView projV) {
-                this.projV = projV;
-            }
-        }
-
-        private ServiceClass sc;
-        private final Context context;
-
-        public ProjectListAdapter(Context context) {
-            this.sc = ServiceClass.getServiceClass();
-            this.context = context;
-        }
-
-        @Override
-        public int getCount() {
+    @Override
+    public int getCount() {
         return sc.sizeP();
     }
 
-        @Override
-        public Project getItem(int position) {
+    @Override
+    public Project getItem(int position) {
         return sc.getProject(position);
     }
 
-        @Override
-        public long getItemId(int position) {
+    @Override
+    public long getItemId(int position) {
         return position;
     }
 
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
         TextView projView;
         if (convertView == null) {
             convertView = LayoutInflater.from(context).inflate(R.layout.project_list_entry, parent, false);
@@ -59,11 +50,19 @@ public class ProjectListAdapter extends BaseAdapter implements ListAdapter  {
         }
         ViewHolder viewHolder = (ViewHolder) convertView.getTag();
 
-        Project p=getItem((int) getItemId(position));
+        Project p = getItem((int) getItemId(position));
         projView = viewHolder.projV;
         projView.setText(p.getName());
 
         return convertView;
+    }
+
+    private static class ViewHolder {
+        public final TextView projV;
+
+        private ViewHolder(TextView projV) {
+            this.projV = projV;
+        }
     }
 
 

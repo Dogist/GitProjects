@@ -60,4 +60,6 @@
     <string name="cancel">Cancel</string>
     <string name="duration_calculator">Duration Calculator</string>
     <string name="loadSampleData">Load Sample Data</string>
+    <string name="backup">write Backup</string>
+    <string name="showProj">Show Projects</string>
 </resources>

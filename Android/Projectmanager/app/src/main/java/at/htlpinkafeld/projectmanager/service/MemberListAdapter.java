@@ -18,17 +18,8 @@ import at.htlpinkafeld.projectmanager.pojo.TeamMember;
 public class MemberListAdapter extends BaseAdapter implements ListAdapter {
 
 
-    private static class ViewHolder{
-        public final TextView memV;
-
-        private ViewHolder(TextView memV) {
-            this.memV = memV;
-        }
-    }
-
-    private ServiceClass sc;
     private final Context context;
-
+    private ServiceClass sc;
     public MemberListAdapter(Context context) {
         this.sc = ServiceClass.getServiceClass();
         this.context = context;
@@ -59,11 +50,19 @@ public class MemberListAdapter extends BaseAdapter implements ListAdapter {
         }
         ViewHolder viewHolder = (ViewHolder) convertView.getTag();
 
-        TeamMember m=getItem((int) getItemId(position));
+        TeamMember m = getItem((int) getItemId(position));
         memView = viewHolder.memV;
-        memView.setText(m.getTitle()+" "+m.getFname()+" "+m.getLname());
+        memView.setText(m.getTitle() + " " + m.getFname() + " " + m.getLname());
 
         return convertView;
+    }
+
+    private static class ViewHolder {
+        public final TextView memV;
+
+        private ViewHolder(TextView memV) {
+            this.memV = memV;
+        }
     }
 
 

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -13,10 +14,18 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedOutputStream;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.ObjectOutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.logging.LogManager;
 import java.util.logging.Logger;
 
@@ -24,6 +33,7 @@ import at.htlpinkafeld.projectmanager.gui.SettingsActivity;
 import at.htlpinkafeld.projectmanager.gui.SlidingTabLayout;
 import at.htlpinkafeld.projectmanager.gui.ViewPagerAdapter;
 import at.htlpinkafeld.projectmanager.pojo.Activity;
+import at.htlpinkafeld.projectmanager.pojo.Project;
 import at.htlpinkafeld.projectmanager.pojo.TeamMember;
 import at.htlpinkafeld.projectmanager.service.ServiceClass;
 
@@ -31,22 +41,23 @@ import at.htlpinkafeld.projectmanager.service.ServiceClass;
 public class MainActivity extends AppCompatActivity {
 
     private static final Logger log = Logger.getLogger(MainActivity.class.getName());
-
+    public static Context context;
     Toolbar toolbar;
     ViewPager pager;
     ViewPagerAdapter adapter;
     SlidingTabLayout tabs;
-    CharSequence Titles[]={"Members","Projects", "Activities"};
-    int Numboftabs =3;
-
-    public static Context context;
+    CharSequence Titles[] = {"Members", "Projects", "Activities"};
+    int Numboftabs = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        MainActivity.context=getApplicationContext();
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+
+        MainActivity.context = getApplicationContext();
 
         try {
             setLoggingProperties("logging.properties");
@@ -62,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         // Creating The ViewPagerAdapter and Passing Fragment Manager, Titles fot the Tabs and Number Of Tabs.
-        adapter =  new ViewPagerAdapter(getSupportFragmentManager(),Titles,Numboftabs);
+        adapter = new ViewPagerAdapter(getSupportFragmentManager(), Titles, Numboftabs);
 
         // Assigning ViewPager View and setting the adapter
         pager = (ViewPager) findViewById(R.id.pager);
@@ -81,7 +92,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-
         // Setting the ViewPager For the SlidingTabsLayout
         tabs.setViewPager(pager);
 
@@ -97,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_settings:
-                Toast.makeText(this, "Under construction!", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this, "Under construction!", Toast.LENGTH_SHORT).show();
                 //DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
                 //try {
                 //
@@ -109,21 +119,20 @@ public class MainActivity extends AppCompatActivity {
 
                 return true;
             case R.id.writeActM:
-                FileOutputStream out=null;
+                FileOutputStream out = null;
                 try {
-                    out= openFileOutput("activities.csv", Context.MODE_PRIVATE);
-                    ServiceClass sc= ServiceClass.getServiceClass();
-                    for(int i=0; i<sc.sizeA();i++){
-                        Activity a=sc.getActivity(i);
-                        String res=a.getId()+";"+a.getName()+";"+a.getPrior()+";"+a.getEffort()+";"+a.getStartDat()+";"+a.getEndDat();
+                    out = openFileOutput("activities.csv", Context.MODE_PRIVATE);
+                    ServiceClass sc = ServiceClass.getServiceClass();
+                    for (int i = 0; i < sc.sizeA(); i++) {
+                        Activity a = sc.getActivity(i);
+                        String res = a.getId() + ";" + a.getName() + ";" + a.getPrior() + ";" + a.getEffort() + ";" + a.getStartDat() + ";" + a.getEndDat();
                         out.write(res.getBytes());
                         out.write('\n');
                     }
 
                 } catch (IOException e) {
                     e.printStackTrace();
-                }
-                finally {
+                } finally {
                     if (out != null) {
                         try {
                             out.close();
@@ -135,22 +144,21 @@ public class MainActivity extends AppCompatActivity {
 
                 return true;
             case R.id.showActM:
-                FileInputStream in=null;
+                FileInputStream in = null;
                 try {
                     in = openFileInput("activities.csv");
                     int c;
-                    String res="";
-                    byte[] buffer=new byte[32];
-                    while(in.read(buffer)!=-1){
-                        res+=new String(buffer);
-                        buffer=new byte[32];
+                    String res = "";
+                    byte[] buffer = new byte[32];
+                    while (in.read(buffer) != -1) {
+                        res += new String(buffer);
+                        buffer = new byte[32];
                     }
                     Toast.makeText(this, res, Toast.LENGTH_LONG).show();
                 } catch (Exception e) {
                     e.printStackTrace();
-                }
-                finally {
-                    if(in!=null){
+                } finally {
+                    if (in != null) {
                         try {
                             in.close();
                         } catch (IOException e) {
@@ -165,23 +173,79 @@ public class MainActivity extends AppCompatActivity {
                 //}
                 Toast.makeText(this, ServiceClass.getServiceClass().getProject(5).toString(), Toast.LENGTH_LONG).show();
                 return true;
+            case R.id.writeBackupM:
+                JSONObject jObjBackup = new JSONObject();
+                JSONArray jArrayData = new JSONArray();
+                ServiceClass sc=ServiceClass.getServiceClass();
+                for(int i=0; i<sc.sizeM();i++)
+                {
+                    try {
+                        jArrayData.put(sc.getMember(i).toJson());
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+                try {
+                    jObjBackup.put("teamMembers", jArrayData);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                jArrayData = new JSONArray();
+                for(int i=0; i<sc.sizeP();i++)
+                {
+                    try {
+                        Project p =sc.getProject(i);
+                        jArrayData.put(p.toJson(sc.getActivitiesFromProject(p)));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+                try {
+                    jObjBackup.put("projects", jArrayData);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                try {
+                    writeToWebsite("http://projectmanagerbackups.getsandbox.com/backups/six", jObjBackup);
+                } catch (IOException | JSONException e) {
+                    e.printStackTrace();
+                }
+                return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
 
-    public void addMem(View v){
+    public void writeToWebsite(String urlString, JSONObject jObject) throws IOException, JSONException {
+        URL url = new URL(urlString);
+        HttpURLConnection conn = null;
+
+        conn = (HttpURLConnection) url.openConnection();
+
+        conn.setRequestMethod("PUT");
+        conn.setDoOutput(true);
+
+        // Starts the query
+        conn.connect();
+        ObjectOutputStream oos=new ObjectOutputStream(conn.getOutputStream());
+        oos.writeObject(jObject.toString(4));
+        System.out.println(jObject.toString(4)+"    "+ conn.getResponseCode());
+        oos.close();
+    }
+
+
+    public void addMem(View v) {
 
         ServiceClass sc = ServiceClass.getServiceClass();
 
-        EditText idE =(EditText) findViewById(R.id.m_id_text);
-        EditText titleE =(EditText) findViewById(R.id.m_title_text);
-        EditText jobE =(EditText) findViewById(R.id.m_job_text);
-        EditText fnameE =(EditText) findViewById(R.id.m_fname_text);
-        EditText lnameE =(EditText) findViewById(R.id.m_lname_text);
-        EditText depE =(EditText) findViewById(R.id.m_dep_text);
+        EditText idE = (EditText) findViewById(R.id.m_id_text);
+        EditText titleE = (EditText) findViewById(R.id.m_title_text);
+        EditText jobE = (EditText) findViewById(R.id.m_job_text);
+        EditText fnameE = (EditText) findViewById(R.id.m_fname_text);
+        EditText lnameE = (EditText) findViewById(R.id.m_lname_text);
+        EditText depE = (EditText) findViewById(R.id.m_dep_text);
 
-        if(idE!=null&&titleE!=null&&jobE!=null&&fnameE!=null&&lnameE!=null&&depE!=null) {
+        if (idE != null && titleE != null && jobE != null && fnameE != null && lnameE != null && depE != null) {
             int id = Integer.parseInt(idE.getText().toString());
             String title = titleE.getText().toString();
             String job = jobE.getText().toString();
@@ -195,11 +259,11 @@ public class MainActivity extends AppCompatActivity {
         sc.printAllM();
     }
 
-    public void saveMem(View v){
+    public void saveMem(View v) {
 
         ServiceClass sc = ServiceClass.getServiceClass();
 
-        if(sc.sizeM()>0) {
+        if (sc.sizeM() > 0) {
             EditText idE = (EditText) findViewById(R.id.m_id_text);
             EditText titleE = (EditText) findViewById(R.id.m_title_text);
             EditText jobE = (EditText) findViewById(R.id.m_job_text);
@@ -221,11 +285,11 @@ public class MainActivity extends AppCompatActivity {
         sc.printAllM();
     }
 
-    public void delMem(View v){
+    public void delMem(View v) {
 
         ServiceClass sc = ServiceClass.getServiceClass();
-        int id=Integer.parseInt(((EditText) findViewById(R.id.m_id_text)).getText().toString());
-        if(sc.sizeM()>id)
+        int id = Integer.parseInt(((EditText) findViewById(R.id.m_id_text)).getText().toString());
+        if (sc.sizeM() > id)
             sc.removeMemberByID(id);
         sc.printAllM();
     }
@@ -240,12 +304,11 @@ public class MainActivity extends AppCompatActivity {
         //opening the file
         InputStream inputStream = am.open(logProperties);
 
-        if(lManager!=null) {
+        if (lManager != null) {
             lManager.readConfiguration(inputStream);
         }
 
     }
-
 
 
     @Override

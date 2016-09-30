@@ -14,7 +14,7 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
 
 
     // Build a Constructor and assign the passed Values to appropriate values in the class
-    public ViewPagerAdapter(FragmentManager fm,CharSequence mTitles[], int mNumbOfTabsumb) {
+    public ViewPagerAdapter(FragmentManager fm, CharSequence mTitles[], int mNumbOfTabsumb) {
         super(fm);
 
         this.Titles = mTitles;
@@ -26,17 +26,15 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
     @Override
     public Fragment getItem(int position) {
 
-        if(position == 0) // if the position is 0 we are returning the First tab
+        if (position == 0) // if the position is 0 we are returning the First tab
         {
             MemberFragment tab1 = new MemberFragment();
             return tab1;
-        }
-        else if(position == 1){
-            ProjectFragment tab2= new ProjectFragment();
+        } else if (position == 1) {
+            ProjectFragment tab2 = new ProjectFragment();
             return tab2;
-        }
-        else {
-            ActivityFragment tab3= new ActivityFragment();
+        } else {
+            ActivityFragment tab3 = new ActivityFragment();
             return tab3;
         }
 

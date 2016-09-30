@@ -1,27 +1,13 @@
 package at.htlpinkafeld.projectmanager.gui;
 
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ListView;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-
-import at.htlpinkafeld.projectmanager.pojo.TeamMember;
 import at.htlpinkafeld.projectmanager.service.MemberListAdapter;
-import at.htlpinkafeld.projectmanager.service.ServiceClass;
 
 
 /**

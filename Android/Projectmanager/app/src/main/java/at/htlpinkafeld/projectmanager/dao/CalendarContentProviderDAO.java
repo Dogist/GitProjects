@@ -16,19 +16,17 @@ import at.htlpinkafeld.projectmanager.pojo.MyCalendar;
  */
 public class CalendarContentProviderDAO implements CalendarDAO {
 
-    public static final String[] EVENT_PROJECTION = new String[] {
+    public static final String[] EVENT_PROJECTION = new String[]{
             Calendars._ID,                           // 0
             Calendars.ACCOUNT_NAME,                  // 1
             Calendars.CALENDAR_DISPLAY_NAME,         // 2
             Calendars.OWNER_ACCOUNT                  // 3
     };
-
-    private Context context;
-
     private static final int PROJECTION_ID_INDEX = 0;
     private static final int PROJECTION_ACCOUNT_NAME_INDEX = 1;
     private static final int PROJECTION_DISPLAY_NAME_INDEX = 2;
     private static final int PROJECTION_OWNER_ACCOUNT_INDEX = 3;
+    private Context context;
 
     public CalendarContentProviderDAO() {
     }
@@ -41,12 +39,12 @@ public class CalendarContentProviderDAO implements CalendarDAO {
         String selection = "((" + Calendars.ACCOUNT_NAME + " = ?) AND ("
                 + Calendars.ACCOUNT_TYPE + " = ?) AND ("
                 + Calendars.OWNER_ACCOUNT + " = ?))";
-        String[] selectionArgs = new String[] {"sampleuser@gmail.com", "com.google",
+        String[] selectionArgs = new String[]{"sampleuser@gmail.com", "com.google",
                 "sampleuser@gmail.com"};
         // Submit the query and get a Cursor object back.
         cur = cr.query(uri, EVENT_PROJECTION, selection, selectionArgs, null);
 
-        if (cur.moveToNext()){
+        if (cur.moveToNext()) {
             long calID = 0;
             String displayName = null;
             String ownerName = null;
@@ -55,7 +53,7 @@ public class CalendarContentProviderDAO implements CalendarDAO {
             displayName = cur.getString(PROJECTION_DISPLAY_NAME_INDEX);
             ownerName = cur.getString(PROJECTION_OWNER_ACCOUNT_INDEX);
 
-            return new MyCalendar(calID,displayName,accountType, accountName,ownerName);
+            return new MyCalendar(calID, displayName, accountType, accountName, ownerName);
 
         }
 

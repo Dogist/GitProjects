@@ -15,7 +15,6 @@ import at.htlpinkafeld.projectmanager.cp.PMContract.Activities;
 import at.htlpinkafeld.projectmanager.cp.PMContract.Projects;
 import at.htlpinkafeld.projectmanager.cp.PMContract.TeamMembers;
 import at.htlpinkafeld.projectmanager.dao.PMDBHelper;
-import at.htlpinkafeld.projectmanager.pojo.TeamMember;
 
 
 /**
@@ -23,25 +22,25 @@ import at.htlpinkafeld.projectmanager.pojo.TeamMember;
  */
 public class PMProvider extends ContentProvider {
 
-    private static final int ACTIVITY_LIST =1;
-    private static final int ACTIVITY_ID =2;
-    private static final int PROJECT_LIST =5;
-    private static final int PROJECT_ID=6;
-    private static final int TEAMMEMBER_LIST =10;
-    private static final int TEAMMEMBER_ID =11;
+    private static final int ACTIVITY_LIST = 1;
+    private static final int ACTIVITY_ID = 2;
+    private static final int PROJECT_LIST = 5;
+    private static final int PROJECT_ID = 6;
+    private static final int TEAMMEMBER_LIST = 10;
+    private static final int TEAMMEMBER_ID = 11;
     private static final UriMatcher URI_MATCHER;
 
     static {
         URI_MATCHER = new UriMatcher(UriMatcher.NO_MATCH);
-        URI_MATCHER.addURI(PMContract.AUTHORITY,"activities",ACTIVITY_LIST);
-        URI_MATCHER.addURI(PMContract.AUTHORITY,"activities/#",ACTIVITY_ID);
-        URI_MATCHER.addURI(PMContract.AUTHORITY,"projects",PROJECT_LIST);
-        URI_MATCHER.addURI(PMContract.AUTHORITY,"projects/#",PROJECT_ID);
-        URI_MATCHER.addURI(PMContract.AUTHORITY,"teammembers",TEAMMEMBER_LIST);
-        URI_MATCHER.addURI(PMContract.AUTHORITY,"teammembers/#",TEAMMEMBER_ID);
+        URI_MATCHER.addURI(PMContract.AUTHORITY, "activities", ACTIVITY_LIST);
+        URI_MATCHER.addURI(PMContract.AUTHORITY, "activities/#", ACTIVITY_ID);
+        URI_MATCHER.addURI(PMContract.AUTHORITY, "projects", PROJECT_LIST);
+        URI_MATCHER.addURI(PMContract.AUTHORITY, "projects/#", PROJECT_ID);
+        URI_MATCHER.addURI(PMContract.AUTHORITY, "teammembers", TEAMMEMBER_LIST);
+        URI_MATCHER.addURI(PMContract.AUTHORITY, "teammembers/#", TEAMMEMBER_ID);
     }
 
-    private PMDBHelper pmDatabaseHelper=null;
+    private PMDBHelper pmDatabaseHelper = null;
 
     public PMProvider() {
 
@@ -98,18 +97,17 @@ public class PMProvider extends ContentProvider {
                 throw new IllegalArgumentException("Unsupported URI: " + uri);
         }
         Cursor cursor = builder.query(
-                        db,
-                        projection,
-                        selection,
-                        selectionArgs,
-                        null,
-                        null,
-                        sortOrder);
+                db,
+                projection,
+                selection,
+                selectionArgs,
+                null,
+                null,
+                sortOrder);
         // if we want to be notified of any changes:
         if (useAuthorityUri) {
             cursor.setNotificationUri(getContext().getContentResolver(), PMContract.CONTENT_URI);
-        }
-        else {
+        } else {
             cursor.setNotificationUri(getContext().getContentResolver(), uri);
         }
         return cursor;
@@ -139,19 +137,19 @@ public class PMProvider extends ContentProvider {
 
     @Override
     public Uri insert(Uri uri, ContentValues values) {
-        if(URI_MATCHER.match(uri)!=ACTIVITY_LIST && URI_MATCHER.match(uri)!=PROJECT_LIST && URI_MATCHER.match(uri)!=ACTIVITY_LIST)
+        if (URI_MATCHER.match(uri) != ACTIVITY_LIST && URI_MATCHER.match(uri) != PROJECT_LIST && URI_MATCHER.match(uri) != ACTIVITY_LIST)
             throw new IllegalArgumentException("Unsupported URI for insertion: " + uri);
         SQLiteDatabase db = pmDatabaseHelper.getWritableDatabase();
 
-        if (URI_MATCHER.match(uri)==ACTIVITY_LIST){
-            long id=db.insert(Activities.TABLE_NAME,null,values);
-            return getUriForId(id,uri);
-        } else if(URI_MATCHER.match(uri)==PROJECT_LIST){
-            long id=db.insert(Projects.TABLE_NAME,null,values);
-            return getUriForId(id,uri);
-        }else{
-            long id=db.insert(TeamMembers.TABLE_NAME,null,values);
-            return getUriForId(id,uri);
+        if (URI_MATCHER.match(uri) == ACTIVITY_LIST) {
+            long id = db.insert(Activities.TABLE_NAME, null, values);
+            return getUriForId(id, uri);
+        } else if (URI_MATCHER.match(uri) == PROJECT_LIST) {
+            long id = db.insert(Projects.TABLE_NAME, null, values);
+            return getUriForId(id, uri);
+        } else {
+            long id = db.insert(TeamMembers.TABLE_NAME, null, values);
+            return getUriForId(id, uri);
         }
     }
 

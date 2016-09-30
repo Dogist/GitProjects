@@ -27,7 +27,7 @@ public class PMContract {
      * permission to set in the attribute android:writePermission
      * of the provider tag
      */
-    public static final String PERMISSION_WRITE =AUTHORITY + ".WRITE";
+    public static final String PERMISSION_WRITE = AUTHORITY + ".WRITE";
 
     public static final class Activities implements BaseColumns {
         public static final String TABLE_NAME = "Activity";
@@ -41,11 +41,11 @@ public class PMContract {
 
         public static final Uri CONTENT_URI = Uri.withAppendedPath(PMContract.CONTENT_URI, TABLE_NAME);
 
-        public static final String CONTENT_TYPE = ContentResolver.CURSOR_DIR_BASE_TYPE+"/vnd.at.htlpinkafeld.projectmanager_activities";
+        public static final String CONTENT_TYPE = ContentResolver.CURSOR_DIR_BASE_TYPE + "/vnd.at.htlpinkafeld.projectmanager_activities";
 
-        public static final String CONTENT_ACTIVITY_TYPE = ContentResolver.CURSOR_ITEM_BASE_TYPE+ "/vnd.at.htlpinkafeld.projectmanager_activities";
+        public static final String CONTENT_ACTIVITY_TYPE = ContentResolver.CURSOR_ITEM_BASE_TYPE + "/vnd.at.htlpinkafeld.projectmanager_activities";
 
-        public static final String[] PROJECTION_ALL = {_ID,PID , ANAME,APRIORITY,ASTARTDATE, AENDDATE, AEFFORT};
+        public static final String[] PROJECTION_ALL = {_ID, PID, ANAME, APRIORITY, ASTARTDATE, AENDDATE, AEFFORT};
 
         public static final String SORT_ORDER_DEFAULT = _ID + " ASC";
     }
@@ -62,11 +62,11 @@ public class PMContract {
 
         public static final Uri CONTENT_URI = Uri.withAppendedPath(PMContract.CONTENT_URI, TABLE_NAME);
 
-        public static final String CONTENT_TYPE = ContentResolver.CURSOR_DIR_BASE_TYPE+"/vnd.at.htlpinkafeld.projectmanager_projects";
+        public static final String CONTENT_TYPE = ContentResolver.CURSOR_DIR_BASE_TYPE + "/vnd.at.htlpinkafeld.projectmanager_projects";
 
-        public static final String CONTENT_PROJECTS_TYPE = ContentResolver.CURSOR_ITEM_BASE_TYPE+ "/vnd.at.htlpinkafeld.projectmanager_projects";
+        public static final String CONTENT_PROJECTS_TYPE = ContentResolver.CURSOR_ITEM_BASE_TYPE + "/vnd.at.htlpinkafeld.projectmanager_projects";
 
-        public static final String[] PROJECTION_ALL = {_ID, PNAME , PCONTR,PRPROCMOD,PRSTARTDATE, PRENDDATE, PRDESC};
+        public static final String[] PROJECTION_ALL = {_ID, PNAME, PCONTR, PRPROCMOD, PRSTARTDATE, PRENDDATE, PRDESC};
 
         public static final String SORT_ORDER_DEFAULT = PNAME + " ASC";
     }
@@ -82,11 +82,11 @@ public class PMContract {
 
         public static final Uri CONTENT_URI = Uri.withAppendedPath(PMContract.CONTENT_URI, TABLE_NAME);
 
-        public static final String CONTENT_TYPE = ContentResolver.CURSOR_DIR_BASE_TYPE+"/vnd.at.htlpinkafeld.projectmanager_teammembers";
+        public static final String CONTENT_TYPE = ContentResolver.CURSOR_DIR_BASE_TYPE + "/vnd.at.htlpinkafeld.projectmanager_teammembers";
 
-        public static final String CONTENT_MEMBERS_TYPE = ContentResolver.CURSOR_ITEM_BASE_TYPE+ "/vnd.at.htlpinkafeld.projectmanager_teammembers";
+        public static final String CONTENT_MEMBERS_TYPE = ContentResolver.CURSOR_ITEM_BASE_TYPE + "/vnd.at.htlpinkafeld.projectmanager_teammembers";
 
-        public static final String[] PROJECTION_ALL ={_ID,TMTITLE,TMJOB,TMFIRST_NAME,TMLAST_NAME,TMDEPARTMENT};
+        public static final String[] PROJECTION_ALL = {_ID, TMTITLE, TMJOB, TMFIRST_NAME, TMLAST_NAME, TMDEPARTMENT};
 
         public static final String SORT_ORDER_DEFAULT = TMLAST_NAME + " ASC, " + TMFIRST_NAME + "ASC";
 

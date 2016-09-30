@@ -16,8 +16,11 @@ public abstract class PM_DAOFactory {
     }
 
     public abstract ProjectSQL_DAO getProjectDAO();
+
     public abstract ActivityDAO getActivityDAO();
+
     public abstract TeamMemberDAO getTeamMemberDAO();
+
     public abstract CalendarDAO getCalendarDAO();
 
 }

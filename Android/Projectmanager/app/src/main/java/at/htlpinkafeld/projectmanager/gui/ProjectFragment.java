@@ -17,7 +17,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 import at.htlpinkafeld.projectmanager.R;
-import at.htlpinkafeld.projectmanager.pojo.Activity;
 import at.htlpinkafeld.projectmanager.pojo.Project;
 
 
@@ -31,9 +30,9 @@ public class ProjectFragment extends Fragment implements ListToDetailListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        final View view= inflater.inflate(R.layout.project_fragment, container, false);
+        final View view = inflater.inflate(R.layout.project_fragment, container, false);
 
-        prDetView=view.findViewById(R.id.projDetail_frag);
+        prDetView = view.findViewById(R.id.projDetail_frag);
         View prListView = view.findViewById(R.id.projList_frag);
         prListView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
@@ -48,7 +47,7 @@ public class ProjectFragment extends Fragment implements ListToDetailListener {
             }
         });
 
-        Button button= (Button) view.findViewById(R.id.start_duration_calc);
+        Button button = (Button) view.findViewById(R.id.start_duration_calc);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -73,11 +72,11 @@ public class ProjectFragment extends Fragment implements ListToDetailListener {
 
     }
 
-    class ActionBarCallBack implements ActionMode.Callback{
+    class ActionBarCallBack implements ActionMode.Callback {
 
         @Override
         public boolean onCreateActionMode(ActionMode mode, Menu menu) {
-            mode.getMenuInflater().inflate(R.menu.contextual_menu,menu);
+            mode.getMenuInflater().inflate(R.menu.contextual_menu, menu);
             return true;
         }
 
@@ -89,12 +88,15 @@ public class ProjectFragment extends Fragment implements ListToDetailListener {
 
         @Override
         public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
-            switch (item.getItemId()){
-                case R.id.newM : prDetView.findViewById(R.id.p_newB).callOnClick();
+            switch (item.getItemId()) {
+                case R.id.newM:
+                    prDetView.findViewById(R.id.p_newB).callOnClick();
                     break;
-                case R.id.saveM : prDetView.findViewById(R.id.p_saveB).callOnClick();
+                case R.id.saveM:
+                    prDetView.findViewById(R.id.p_saveB).callOnClick();
                     break;
-                case R.id.deleteM : prDetView.findViewById(R.id.p_deleteB).callOnClick();
+                case R.id.deleteM:
+                    prDetView.findViewById(R.id.p_deleteB).callOnClick();
                     break;
             }
             return false;
@@ -102,7 +104,7 @@ public class ProjectFragment extends Fragment implements ListToDetailListener {
 
         @Override
         public void onDestroyActionMode(ActionMode mode) {
-            mActionMode=null;
+            mActionMode = null;
         }
     }
 }

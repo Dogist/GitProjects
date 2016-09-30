@@ -1,5 +1,8 @@
 package at.htlpinkafeld.projectmanager.pojo;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.Date;
 
 /**
@@ -15,7 +18,7 @@ public class Activity {
     private double effort;
 
     public Activity(Project proj, int id, String name, String prior, Date startDat, Date endDat, double effort) {
-        this.proj =proj;
+        this.proj = proj;
         this.id = id;
         this.name = name;
         this.prior = prior;
@@ -29,7 +32,7 @@ public class Activity {
     }
 
     public Activity(int actId) {
-        id=actId;
+        id = actId;
     }
 
     public Project getProj() {
@@ -37,51 +40,51 @@ public class Activity {
     }
 
     public void setProj(Project proj) {
-        this.proj =proj;
+        this.proj = proj;
     }
 
     public Integer getId() {
         return id;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public String getPrior() {
-        return prior;
-    }
-
-    public Date getStartDat() {
-        return startDat;
-    }
-
-    public Date getEndDat() {
-        return endDat;
-    }
-
-    public double getEffort() {
-        return effort;
-    }
-
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
+    public String getPrior() {
+        return prior;
+    }
+
     public void setPrior(String prior) {
         this.prior = prior;
+    }
+
+    public Date getStartDat() {
+        return startDat;
     }
 
     public void setStartDat(Date startDat) {
         this.startDat = startDat;
     }
 
+    public Date getEndDat() {
+        return endDat;
+    }
+
     public void setEndDat(Date endDat) {
         this.endDat = endDat;
+    }
+
+    public double getEffort() {
+        return effort;
     }
 
     public void setEffort(double effort) {
@@ -92,13 +95,23 @@ public class Activity {
     public String toString() {
         return "Activity{" +
                 "id=" + id +
-                ", project="+ proj +"\'"+
+                ", project=" + proj + "\'" +
                 ", name='" + name + '\'' +
                 ", prior='" + prior + '\'' +
                 ", startDat=" + startDat +
                 ", endDat=" + endDat +
                 ", effort='" + effort + '\'' +
                 '}';
+    }
+
+    public JSONObject toJson() throws JSONException {
+        JSONObject jObject = new JSONObject();
+        jObject.put("name", name);
+        jObject.put("prior", prior);
+        jObject.put("startDat", startDat);
+        jObject.put("endDat", endDat);
+        jObject.put("effort", effort);
+        return jObject;
     }
 
     @Override

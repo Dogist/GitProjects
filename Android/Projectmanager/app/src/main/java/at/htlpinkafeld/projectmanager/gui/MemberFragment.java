@@ -1,10 +1,10 @@
 package at.htlpinkafeld.projectmanager.gui;
 
 
-import android.support.v4.app.ListFragment;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.ListFragment;
 import android.view.ActionMode;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -12,7 +12,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.ListView;
 
 import org.json.JSONArray;
@@ -40,9 +39,9 @@ public class MemberFragment extends Fragment implements ListToDetailListener {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        final View view= inflater.inflate(R.layout.member_fragment, container, false);
+        final View view = inflater.inflate(R.layout.member_fragment, container, false);
 
-        memDetFrag=view.findViewById(R.id.memDetail_frag);
+        memDetFrag = view.findViewById(R.id.memDetail_frag);
 
 //        View memListFrag = view.findViewById(R.id.memList_frag);
 //        memListFrag.setOnLongClickListener(new View.OnLongClickListener() {
@@ -64,7 +63,7 @@ public class MemberFragment extends Fragment implements ListToDetailListener {
                 new LoadSampleMembersTask().execute("http://wewewe.xyz/tmp/sample_members.json");
             }
         });
-        memListFrag=(ListFragment) getChildFragmentManager().findFragmentById(R.id.memList_frag);
+        memListFrag = (ListFragment) getChildFragmentManager().findFragmentById(R.id.memList_frag);
 
         return view;
     }
@@ -74,11 +73,11 @@ public class MemberFragment extends Fragment implements ListToDetailListener {
         MemberDetailFragment.mapObjectToView((TeamMember) view.getAdapter().getItem(position), memDetFrag);
     }
 
-    class ActionBarCallBack implements ActionMode.Callback{
+    class ActionBarCallBack implements ActionMode.Callback {
 
         @Override
         public boolean onCreateActionMode(ActionMode mode, Menu menu) {
-            mode.getMenuInflater().inflate(R.menu.contextual_menu,menu);
+            mode.getMenuInflater().inflate(R.menu.contextual_menu, menu);
             return true;
         }
 
@@ -90,12 +89,15 @@ public class MemberFragment extends Fragment implements ListToDetailListener {
 
         @Override
         public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
-            switch (item.getItemId()){
-                case R.id.newM : memDetFrag.findViewById(R.id.m_newB).callOnClick();
+            switch (item.getItemId()) {
+                case R.id.newM:
+                    memDetFrag.findViewById(R.id.m_newB).callOnClick();
                     break;
-                case R.id.saveM : memDetFrag.findViewById(R.id.m_saveB).callOnClick();
+                case R.id.saveM:
+                    memDetFrag.findViewById(R.id.m_saveB).callOnClick();
                     break;
-                case R.id.deleteM : memDetFrag.findViewById(R.id.m_deleteB).callOnClick();
+                case R.id.deleteM:
+                    memDetFrag.findViewById(R.id.m_deleteB).callOnClick();
                     break;
             }
             return false;
@@ -103,7 +105,7 @@ public class MemberFragment extends Fragment implements ListToDetailListener {
 
         @Override
         public void onDestroyActionMode(ActionMode mode) {
-            mActionMode=null;
+            mActionMode = null;
         }
     }
 
@@ -113,8 +115,8 @@ public class MemberFragment extends Fragment implements ListToDetailListener {
         protected Void doInBackground(String... params) {
             try {
                 JSONArray jsonArray = new JSONArray(readWebsite(params[0]));
-                for(int i=0, length =jsonArray.length();i<length;i++){
-                    TeamMember mem=new TeamMember(jsonArray.getJSONObject(i));
+                for (int i = 0, length = jsonArray.length(); i < length; i++) {
+                    TeamMember mem = new TeamMember(jsonArray.getJSONObject(i));
                     ServiceClass.getServiceClass().addMember(mem);
                 }
             } catch (JSONException e) {
@@ -126,7 +128,7 @@ public class MemberFragment extends Fragment implements ListToDetailListener {
 
         @Override
         protected void onPostExecute(Void aVoid) {
-            ((BaseAdapter)memListFrag.getListAdapter()).notifyDataSetChanged();
+            ((BaseAdapter) memListFrag.getListAdapter()).notifyDataSetChanged();
         }
 
         private String readWebsite(String urlString) {
@@ -167,9 +169,9 @@ public class MemberFragment extends Fragment implements ListToDetailListener {
         private String readIt(InputStream stream) throws IOException {
             BufferedReader reader = null;
             reader = new BufferedReader(new InputStreamReader(stream));
-            String res="", help;
-            while((help=reader.readLine())!=null) {
-                res+=help;
+            String res = "", help;
+            while ((help = reader.readLine()) != null) {
+                res += help;
             }
             return res;
         }

@@ -20,7 +20,7 @@ public abstract class BaseSQL_DAO<T> implements BaseDAO<T> {
     private final String[] allColumns;
 
     public BaseSQL_DAO(PMDBHelper pmDatabaseHelper, String tableName, String[] allColumns, String COLUMN_ID) {
-        this.COLUMN_ID=COLUMN_ID;
+        this.COLUMN_ID = COLUMN_ID;
         this.pmDatabaseHelper = pmDatabaseHelper;
         this.tableName = tableName;
         this.allColumns = allColumns;
@@ -79,7 +79,6 @@ public abstract class BaseSQL_DAO<T> implements BaseDAO<T> {
     protected abstract void cursorToEntity(Cursor cursor, T entity);
 
     protected abstract T createEntity();
-
 
 
 }
