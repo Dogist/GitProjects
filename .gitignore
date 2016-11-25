@@ -222,3 +222,5 @@ pip-log.txt
 /JavaSE/Streams/nbproject/private/
 /JavaSE/SayServer/nbproject/private/
 /JavaSE/Database_Manager/nbproject/private/
+/JavaSE/Threads_Countdownlatch_Test/nbproject/private/
+/JavaSE/Threads_CyclicBarrier_Test/nbproject/private/
