@@ -9,15 +9,11 @@ import at.htlpinkafeld.database_manager.dao.connectionData.ConnectionData;
 import at.htlpinkafeld.database_manager.dao.connectionData.HSQLDBConnectionData;
 import at.htlpinkafeld.database_manager.dao.connectionData.MySQLConnectionData;
 import at.htlpinkafeld.database_manager.dao.connectionData.OracleConnectionData;
-import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import javax.sql.DataSource;
-import oracle.jdbc.pool.OracleDataSource;
-import oracle.jdbc.pool.OracleDataSourceFactory;
-import org.hsqldb.jdbc.JDBCCommonDataSource;
-import org.hsqldb.jdbc.JDBCDataSource;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -25,17 +21,32 @@ import org.hsqldb.jdbc.JDBCDataSource;
  */
 public class DAOFactory {
 
-    private static DataSource dataSource;
-
     private static DAOFactory daoFactory;
     private static Connection dbConnection;
+    private static ConnectionData connectionData;
 
-    public Connection getDbConnection() {
+    private final DeptDAO deptDAO;
+    private final EmpDAO empDAO;
+
+    protected Connection getDbConnection() {
         return dbConnection;
     }
 
     private DAOFactory() {
+        deptDAO = new SQLDeptDAO();
+        empDAO = new SQLEmpDAO();
+    }
 
+    public DeptDAO getDeptDAO() {
+        return deptDAO;
+    }
+
+    public EmpDAO getEmpDAO() {
+        return empDAO;
+    }
+
+    public static ConnectionData getConnectionData() {
+        return connectionData;
     }
 
     public static DAOFactory getDAOFactory() {
@@ -46,19 +57,35 @@ public class DAOFactory {
     }
 
     public static void setDAOFactory(ConnectionData connectionData) throws SQLException {
-        switch (connectionData.getDaoType()) {
-            case HSQLDB:
-                HSQLDBConnectionData hconDat = (HSQLDBConnectionData) connectionData;
-                dbConnection = DriverManager.getConnection("jdbc:hsqldb:file:" + hconDat.getPath(), hconDat.getUsername(), hconDat.getPassword());
-                break;
-            case ORACLE:
-                OracleConnectionData oconDat = (OracleConnectionData) connectionData;
-                dbConnection = DriverManager.getConnection("jdbc:oracle:", oconDat.getUsername(), oconDat.getPassword());
-                break;
-            case MySQL:
-                MySQLConnectionData myconDat = (MySQLConnectionData) connectionData;
-                dbConnection = DriverManager.getConnection(url, myconDat.getUsername(), myconDat.getPassword());
-                break;
+        DAOFactory.connectionData = connectionData;
+        if (connectionData == null) {
+            dbConnection = null;
+        } else {
+            switch (connectionData.getDaoType()) {
+                case HSQLDB:
+                    HSQLDBConnectionData hconDat = (HSQLDBConnectionData) connectionData;
+                    dbConnection = DriverManager.getConnection("jdbc:hsqldb:file:" + hconDat.getPath() + ";shutdown=true;ifexists=true;hsqldb.lock_file=false;", hconDat.getUsername(), hconDat.getPassword());
+                    break;
+                case ORACLE:
+                    OracleConnectionData oconDat = (OracleConnectionData) connectionData;
+                    dbConnection = DriverManager.getConnection("jdbc:oracle:thin:@" + oconDat.getServerUrl() + ":" + oconDat.getPort() + ":" + oconDat.getDbName(), oconDat.getUsername(), oconDat.getPassword());
+                    break;
+                case MySQL: {
+                    try {
+                        Class.forName("com.mysql.jdbc.Driver");
+
+                        MySQLConnectionData myconDat = (MySQLConnectionData) connectionData;
+                        dbConnection = DriverManager.getConnection("jdbc:mysql://" + myconDat.getServerUrl() + ":" + myconDat.getPort() + "/" + myconDat.getDbName(), myconDat.getUsername(), myconDat.getPassword());
+                        break;
+                    } catch (ClassNotFoundException ex) {
+                        Logger.getLogger(DAOFactory.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            }
+            if (dbConnection != null) {
+                dbConnection.setAutoCommit(false);
+            }
         }
     }
+
 }

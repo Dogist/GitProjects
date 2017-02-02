@@ -1,0 +1,5 @@
+java -jar spring-microservices-1.0-SNAPSHOT.jar registration
+java -jar spring-microservices-1.0-SNAPSHOT.jar accounts
+java -jar spring-microservices-1.0-SNAPSHOT.jar products
+java -jar spring-microservices-1.0-SNAPSHOT.jar orders
+java -jar spring-microservices-1.0-SNAPSHOT.jar carts

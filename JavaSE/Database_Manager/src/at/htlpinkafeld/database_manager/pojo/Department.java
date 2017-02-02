@@ -22,6 +22,7 @@ public class Department {
     }
 
     public Department(String dname, String loc) {
+        deptno = -1;
         this.dname = dname;
         this.loc = loc;
     }

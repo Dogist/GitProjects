@@ -6,6 +6,7 @@
 package at.htlpinkafeld.database_manager.pojo;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 /**
  *
@@ -13,7 +14,7 @@ import java.time.LocalDate;
  */
 public class Employee {
 
-    private int empno;
+    private Integer empno;
     private String ename;
     private String job;
     private Employee mgr;
@@ -21,6 +22,12 @@ public class Employee {
     private Double comm;
     private LocalDate hiredate;
     private Department dept;
+
+    public Employee() {
+        empno = -1;
+        ename = "";
+        job = "";
+    }
 
     public Employee(int empno, String ename, String job, Employee mgr, LocalDate hiredate, Double sal, Double comm, Department dept) {
         this.empno = empno;
@@ -34,6 +41,7 @@ public class Employee {
     }
 
     public Employee(String ename, String job, Employee mgr, Double sal, Double comm, LocalDate hiredate, Department dept) {
+        this();
         this.ename = ename;
         this.job = job;
         this.mgr = mgr;
@@ -43,11 +51,11 @@ public class Employee {
         this.dept = dept;
     }
 
-    public int getEmpno() {
+    public Integer getEmpno() {
         return empno;
     }
 
-    public void setEmpno(int empno) {
+    public void setEmpno(Integer empno) {
         this.empno = empno;
     }
 
@@ -131,7 +139,7 @@ public class Employee {
             return false;
         }
         final Employee other = (Employee) obj;
-        if (this.empno != other.empno) {
+        if (!Objects.equals(this.empno, other.empno)) {
             return false;
         }
         return true;

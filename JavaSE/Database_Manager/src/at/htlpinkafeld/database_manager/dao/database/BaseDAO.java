@@ -5,6 +5,7 @@
  */
 package at.htlpinkafeld.database_manager.dao.database;
 
+import at.htlpinkafeld.database_manager.pojo.StatementEntityWrapper;
 import java.util.List;
 
 /**
@@ -20,7 +21,13 @@ public interface BaseDAO<T> {
 
     public abstract void delete(T obj);
 
+    public abstract T get(int pk);
+
     public abstract List<T> getList();
 
-    public abstract void executeBatchUpdate(List<String> commands);
+    public abstract void executeBatchUpdate(List<StatementEntityWrapper<T>> commands);
+
+    public abstract void commit();
+
+    public abstract void rollback();
 }

@@ -62,4 +62,10 @@ public class HSQLDBConnectionData extends ConnectionData {
         }
         return true;
     }
+
+    @Override
+    public String toString() {
+        return "HSQLDB - " + path;
+    }
+
 }

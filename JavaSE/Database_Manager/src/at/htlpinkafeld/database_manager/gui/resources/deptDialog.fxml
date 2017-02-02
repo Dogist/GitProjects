@@ -10,46 +10,46 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<BorderPane prefHeight="282.0" prefWidth="434.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.htlpinkafeld.database_manager.gui.DeptScreenController">
-   <center>
-      <GridPane prefHeight="397.0" prefWidth="516.0" translateX="1.0">
-         <columnConstraints>
-            <ColumnConstraints maxWidth="191.0" minWidth="10.0" prefWidth="150.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="352.0" minWidth="10.0" prefWidth="284.0" />
-         </columnConstraints>
-         <rowConstraints>
-            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-         </rowConstraints>
-         <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="31.0" prefWidth="158.0" text="Deptno" />
-            <TextField prefHeight="31.0" prefWidth="245.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-               <GridPane.margin>
-                  <Insets left="20.0" right="30.0" />
-               </GridPane.margin>
-            </TextField>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="31.0" prefWidth="158.0" text="Abteilungsname" GridPane.rowIndex="1" />
-            <TextField disable="true" editable="false" prefHeight="31.0" prefWidth="245.0" GridPane.columnIndex="1">
-               <GridPane.margin>
-                  <Insets left="20.0" right="30.0" />
-               </GridPane.margin>
-            </TextField>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="31.0" prefWidth="158.0" text="Standort" GridPane.rowIndex="2" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="2">
-               <GridPane.margin>
-                  <Insets left="20.0" right="30.0" />
-               </GridPane.margin>
-            </TextField>
-         </children>
-      </GridPane>
-   </center>
-   <bottom>
-      <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <items>
-            <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="140.0" text="Hinzufügen" />
-            <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="140.0" text="Abbrechen" />
-         </items>
-      </ToolBar>
-   </bottom>
+<BorderPane prefHeight="282.0" prefWidth="434.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.htlpinkafeld.database_manager.gui.DeptDialogController">
+    <center>
+        <GridPane prefHeight="397.0" prefWidth="516.0" translateX="1.0">
+            <columnConstraints>
+                <ColumnConstraints maxWidth="191.0" minWidth="10.0" prefWidth="150.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="352.0" minWidth="10.0" prefWidth="284.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="31.0" prefWidth="158.0" text="Deptno" />
+                <TextField fx:id="dnameField" prefHeight="31.0" prefWidth="245.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <GridPane.margin>
+                        <Insets left="20.0" right="30.0" />
+                    </GridPane.margin>
+                </TextField>
+                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="31.0" prefWidth="158.0" text="Abteilungsname" GridPane.rowIndex="1" />
+                <TextField fx:id="deptnoField" disable="true" editable="false" prefHeight="31.0" prefWidth="245.0" GridPane.columnIndex="1">
+                    <GridPane.margin>
+                        <Insets left="20.0" right="30.0" />
+                    </GridPane.margin>
+                </TextField>
+                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="31.0" prefWidth="158.0" text="Standort" GridPane.rowIndex="2" />
+                <TextField fx:id="locField" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                    <GridPane.margin>
+                        <Insets left="20.0" right="30.0" />
+                    </GridPane.margin>
+                </TextField>
+            </children>
+        </GridPane>
+    </center>
+    <bottom>
+        <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <items>
+                <Button defaultButton="true" mnemonicParsing="false" onAction="#insertDepartmentHandel" prefHeight="31.0" prefWidth="140.0" text="Hinzufügen" />
+                <Button cancelButton="true" mnemonicParsing="false" prefHeight="31.0" prefWidth="140.0" text="Abbrechen" />
+            </items>
+        </ToolBar>
+    </bottom>
 </BorderPane>

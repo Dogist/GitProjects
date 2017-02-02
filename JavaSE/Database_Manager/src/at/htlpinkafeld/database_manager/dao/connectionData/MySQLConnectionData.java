@@ -90,4 +90,10 @@ public class MySQLConnectionData extends ConnectionData {
         }
         return true;
     }
+
+    @Override
+    public String toString() {
+        return "MySQL - " + serverUrl + ":" + port + "/" + dbName;
+    }
+
 }

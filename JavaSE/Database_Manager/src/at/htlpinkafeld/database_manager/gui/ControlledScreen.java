@@ -9,6 +9,6 @@ package at.htlpinkafeld.database_manager.gui;
  *
  * @author Martin Six
  */
-public interface ControlledScreen {
-    public void setScreenParent(ScreensController screenPage);
-}
+//public interface ControlledScreen {
+//    public void setScreenParent(ScreensController screenPage);
+//}

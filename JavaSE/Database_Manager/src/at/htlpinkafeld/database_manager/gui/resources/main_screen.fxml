@@ -4,82 +4,103 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.input.KeyCodeCombination?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="776.0" prefWidth="778.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.htlpinkafeld.database_manager.gui.MainScreenController">
-   <children>
-      <MenuBar>
-         <menus>
-            <Menu mnemonicParsing="false" text="Verbindung">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="Verbindung trennen" />
-               </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Transaktionen">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="Zeile hinzufügen" />
-                  <MenuItem mnemonicParsing="false" text="Delete" />
-                  <MenuItem mnemonicParsing="false" text="Revert" />
-               </items>
-            </Menu>
-         </menus>
-      </MenuBar>
-      <ToolBar prefHeight="45.0" prefWidth="378.0">
-         <items>
-            <Button alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" text="Insert" />
-            <Button alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" text="Save" />
-            <Button alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" text="Delete" />
-            <Button alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" text="Reset" />
-         </items>
-      </ToolBar>
-      <TabPane prefHeight="702.0" prefWidth="778.0" tabClosingPolicy="UNAVAILABLE">
-        <tabs>
-          <Tab closable="false" text="Mitarbeiter">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0">
-                     <children>
-                        <Pane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <children>
-                              <fx:include source="emp.fxml" />
-                           </children>
-                        </Pane>
-                     </children>
-                  </AnchorPane>
-            </content>
-          </Tab>
-          <Tab text="Abteilung">
-               <content>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                     <children>
-                        <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <center>
-                              <fx:include source="dept.fxml" />
-                           </center>
-                        </BorderPane>
-                     </children>
-                  </AnchorPane>
-               </content>
-          </Tab>
-            <Tab text="Abteilung-Mitarbeiter">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <center>
-                              <fx:include source="emp_dept.fxml" />
-                           </center>
-                        </BorderPane>
-                     </children>
-                  </AnchorPane>
-              </content>
-            </Tab>
-        </tabs>
-      </TabPane>
-   </children>
+<VBox prefHeight="823.0" prefWidth="778.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.htlpinkafeld.database_manager.gui.MainScreenController">
+    <children>
+        <MenuBar>
+            <menus>
+                <Menu mnemonicParsing="false" text="Verbindung">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#handleCloseConnection" text="Verbindung trennen">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="Q" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator></MenuItem>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Transaktionen">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#handelInsertAction" text="Insert">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="N" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator></MenuItem>
+                        <MenuItem mnemonicParsing="false" onAction="#handelSaveAction" text="Save">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator></MenuItem>
+                        <MenuItem mnemonicParsing="false" onAction="#handelDeleteAction" text="Delete">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="D" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator></MenuItem>
+                        <MenuItem mnemonicParsing="false" onAction="#handelRevertAction" text="Revert">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="R" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator></MenuItem>
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+        <ToolBar prefHeight="45.0" prefWidth="378.0">
+            <items>
+                <Button alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#handelInsertAction" text="Insert" />
+                <Button alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#handelSaveAction" text="Save" />
+                <Button alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#handelDeleteAction" text="Delete" />
+                <Button alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#handelRevertAction" text="Revert" />
+            </items>
+        </ToolBar>
+        <TabPane fx:id="tabPane" prefHeight="709.0" prefWidth="778.0" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab id="empTab" closable="false" text="Mitarbeiter">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="688.0" prefWidth="778.0">
+                            <children>
+                                <Pane prefHeight="674.0" prefWidth="778.0" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <children>
+                                        <fx:include fx:id="empScreen" source="emp.fxml" />
+                                    </children>
+                                </Pane>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab id="deptTab" text="Abteilung">
+                    <content>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                            <children>
+                                <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <center>
+                                        <fx:include fx:id="deptScreen" source="dept.fxml" />
+                                    </center>
+                                </BorderPane>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab id="emp_deptTab" text="Abteilung-Mitarbeiter">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <center>
+                                        <fx:include fx:id="emp_deptScreen" source="emp_dept.fxml" />
+                                    </center>
+                                </BorderPane>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+        <Separator prefHeight="1.0" prefWidth="778.0" />
+        <TextField fx:id="connectionText" editable="false" prefHeight="45.0" prefWidth="778.0" />
+    </children>
 </VBox>

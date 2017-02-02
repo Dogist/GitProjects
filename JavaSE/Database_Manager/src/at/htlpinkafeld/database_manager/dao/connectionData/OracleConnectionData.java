@@ -90,4 +90,9 @@ public class OracleConnectionData extends ConnectionData {
         }
         return true;
     }
+
+    @Override
+    public String toString() {
+        return "Oracle  - " + serverUrl + ":" + port + ":" + dbName;
+    }
 }
