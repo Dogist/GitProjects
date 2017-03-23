@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="823.0" prefWidth="778.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.htlpinkafeld.database_manager.gui.MainScreenController">
+<VBox prefHeight="823.0" prefWidth="778.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.htlpinkafeld.database_manager.gui.MainScreenController">
     <children>
         <MenuBar>
             <menus>

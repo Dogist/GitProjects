@@ -8,7 +8,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="273.0" prefWidth="492.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.htlpinkafeld.database_manager.gui.ConnectionDialogController">
+<AnchorPane prefHeight="273.0" prefWidth="492.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.htlpinkafeld.database_manager.gui.ConnectionDialogController">
     <children>
         <ButtonBar layoutX="20.0" layoutY="228.0" prefHeight="40.0" prefWidth="452.0">
             <buttons>

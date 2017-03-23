@@ -257,7 +257,7 @@ public class EmpScreenController implements Initializable, ToolBarDelegateInterf
                     @Override
                     public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                         //TODO Wrong Textformater if switch from job to ename or similar
-                        if ((newValue.contentEquals(SQLEmpDAO.ENAME_COL) || newValue.contentEquals(SQLEmpDAO.JOB_COL)) && comparatorChoiceBox.getItems().size() != stringComparator.length) {
+                        if (newValue.contentEquals(SQLEmpDAO.ENAME_COL) || newValue.contentEquals(SQLEmpDAO.JOB_COL)) {
                             comparatorChoiceBox.setItems(new ObservableListWrapper<>(Arrays.asList(stringComparator)));
                             comparatorChoiceBox.getSelectionModel().selectFirst();
 

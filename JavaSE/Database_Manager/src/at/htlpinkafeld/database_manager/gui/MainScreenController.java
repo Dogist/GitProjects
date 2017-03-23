@@ -76,7 +76,7 @@ public class MainScreenController implements Initializable, ChangesListener {
 //        ImageView iv = new ImageView(i);
 //
 //        insertButton.setGraphic(iv);
-//        deleteButton.setGraphic(new ImageView(new Image(getClass().getResourceAsStream("resources/Minus.png"))));
+//        deleteButton.setGraphic(new ImageView(new Image(getClass().getResourceAsStream("Minus.png"))));
 //        saveButton.setGraphic(new ImageView(new Image(getClass().getResourceAsStream("resources/Save.png"))));
 //        revertButton.setGraphic(new ImageView(new Image(getClass().getResourceAsStream("resources/Refresh.png"))));
 

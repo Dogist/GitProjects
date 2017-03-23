@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<BorderPane prefHeight="282.0" prefWidth="434.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.htlpinkafeld.database_manager.gui.DeptDialogController">
+<BorderPane prefHeight="282.0" prefWidth="434.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.htlpinkafeld.database_manager.gui.DeptDialogController">
     <center>
         <GridPane prefHeight="397.0" prefWidth="516.0" translateX="1.0">
             <columnConstraints>

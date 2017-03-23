@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane id="AnchorPane" prefHeight="348.0" prefWidth="415.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.htlpinkafeld.database_manager.gui.LoginScreenController">
+<AnchorPane id="AnchorPane" prefHeight="348.0" prefWidth="415.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.htlpinkafeld.database_manager.gui.LoginScreenController">
     <children>
         <Button fx:id="loginButton" defaultButton="true" layoutX="43.0" layoutY="284.0" onAction="#handleLogin" prefHeight="31.0" prefWidth="72.0" text="Login" />
         <Button fx:id="loginButton1" layoutX="188.0" layoutY="284.0" onAction="#handleConnections" prefHeight="31.0" prefWidth="185.0" text="Verbindungen verwalten" />

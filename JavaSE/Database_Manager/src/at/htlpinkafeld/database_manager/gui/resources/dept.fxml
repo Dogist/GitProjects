@@ -3,7 +3,7 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 
-<TableView fx:id="deptTableView" editable="true" prefHeight="283.0" prefWidth="414.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.htlpinkafeld.database_manager.gui.DeptScreenController">
+<TableView fx:id="deptTableView" editable="true" prefHeight="283.0" prefWidth="414.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.htlpinkafeld.database_manager.gui.DeptScreenController">
     <columns>
         <TableColumn fx:id="deptnoCol" editable="false" prefWidth="75.0" text="Deptno" />
         <TableColumn fx:id="dnameCol" onEditCommit="#onDepartmentChange" prefWidth="162.0" text="Dname" />
